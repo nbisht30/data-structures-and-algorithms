@@ -1,50 +1,69 @@
 package leetcode.randomproblems.strings;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author Nikhil Bisht
  * @date 05-04-2020
  */
-public class ValidPalindrome {
+public class TwoSum {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+        int[] ints = twoSum3(new int[]{2, 7, 7, 15}, 14);
+        for (int i : ints)
+            System.out.print(i + " ");
+        System.out.println();
     }
 
-    private static int isValidChar(char ch) {
-        if ((ch >= 48 && ch <= 57) || (ch >= 65 && ch <= 90))
-            return ch;
-        else if ((ch >= 97 && ch <= 122))
-            return (char) (ch - 32);
-        else
-            return 0;
-    }
+    public static int[] twoSum2(int[] nums, int target) {  //TTS: 27 mins.
+        int arr[] = new int[2];
+        int sum = 0;
 
-    public static boolean isPalindrome(String s) {
-        int st = 0, en = s.length() - 1;
-        String s1 = s.toUpperCase();
-        while (st < en) {
-            int stChar = s1.charAt(st);
-            stChar = isValidChar((char) stChar);
-            int enChar = s1.charAt(en);
-            enChar = isValidChar((char) enChar);
-            while (stChar != 0 && enChar == 0) {  //find a valid character at end
-                // to compare with valid character already found at start, this kind of approach
-                // saves unnecessary checking of validity for a valid character already found at start.
-                en--;
-                enChar = s1.charAt(en);
-                enChar = isValidChar((char) enChar);
+        Map<Integer, List<Integer>> intCount = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            if (intCount.containsKey(nums[i])) {
+                intCount.get(nums[i]).add(i);
+            } else {
+                List<Integer> list = new ArrayList<>();
+                list.add(i);
+                intCount.put(nums[i], list);
             }
-            while (stChar == 0 && enChar != 0) {  //find a valid character at start
-                // to compare with valid character already found at end
-                st++;
-                stChar = s1.charAt(st);
-                stChar = isValidChar((char) stChar);
+
+            if ((target - nums[i]) == nums[i]) {
+                if (intCount.get(nums[i]).size() == 2)
+                    return toIntArray(intCount.get(nums[i]));
+            } else {
+                if (intCount.containsKey(target - nums[i])) {
+                    arr[0] = intCount.get(nums[i]).get(0);
+                    arr[1] = intCount.get(target - nums[i]).get(0);
+                    return arr;
+                }
             }
-            if (stChar != enChar) {
-                return false;
-            }
-            st++;
-            en--;
         }
-        return true;
+        intCount.forEach((a, b) -> System.out.println(a + " " + b));
+        return new int[0];
+    }
+
+    public static int[] twoSum3(int[] nums, int target) {  //This is same but the code is more optimized, as we dont need a list to store two indices when
+        // target has two equal number of whom its a sum eg. target = 8 and there are two elements 4 and 4 in the array. We will find the second elements index as one would already be in the map.
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+    static int[] toIntArray(List<Integer> list) {
+        int[] ret = new int[list.size()];
+        for (int i = 0; i < ret.length; i++)
+            ret[i] = list.get(i);
+        return ret;
     }
 }
