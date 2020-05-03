@@ -1,7 +1,5 @@
 package codingblocks.trees.binarytrees;
 
-import codingblocks.trees.generictrees.GenericTree;
-
 /**
  * @author Nikhil Bisht
  * @date 29-03-2020
@@ -9,7 +7,18 @@ import codingblocks.trees.generictrees.GenericTree;
 public class Main {
     public static void main(String[] args) {
         BinaryTree btree = new BinaryTree();
+        System.out.println("Display:-");
         btree.display();
+        System.out.println("Height:-");
+        System.out.println(btree.heightOfTree());
+        System.out.println("Pre order:-");
+        btree.preOrderTraversal();
+        System.out.println("Inorder:-");
+        btree.inorderTraversal();
+        System.out.println("Post order:-");
+        btree.postOrderTraversal();
+        System.out.println("Level order:-");
+        btree.levelOrderTraversal();
     }
 }
 /*
