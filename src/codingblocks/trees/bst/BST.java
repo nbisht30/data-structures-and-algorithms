@@ -99,6 +99,48 @@ public class BST {
         }
     }
 
+    void deleteNode(int data) {
+        deleteUsingRoot(root, null, data, false);
+        //true -> left child
+        //false -> right child(false for root node also)
+    }
+
+    private void deleteUsingRoot(Node node, Node parent, int item, boolean isLeftOfParent) {
+        //isLeftOfParent > true > current node is left child of parent
+        //isLeftOfParent > false > current node is right child of parent
+        if (node == null) return;
+        else {
+            if (item < node.data) deleteUsingRoot(node.left, node, item, true);
+            else if (item > node.data) deleteUsingRoot(node.right, node, item, false);
+            else {
+                //node to be removed has been found
+                if (node.left == null && node.right == null) {  //node to be removed is leaf node
+                    if (isLeftOfParent) {
+                        parent.left = null;
+                    } else {
+                        parent.right = null;
+                    }
+                } else if (node.left == null && node.right != null) { // node to be removed has data on its right
+                    if (isLeftOfParent) {
+                        parent.left = node.right;
+                    } else {
+                        parent.right = node.right;
+                    }
+                } else if (node.left != null && node.right == null) { // node to be removed has data on its left
+                    if (isLeftOfParent) {
+                        parent.left = node.left;
+                    } else {
+                        parent.right = node.left;
+                    }
+                } else {// node to be removed has data on both its sides
+                    int max = maxInBstRec(node.left);
+                    node.data = max;
+                    deleteUsingRoot(node.left, node, max, true);
+                }
+            }
+        }
+    }
+
     void maxInBst() {
         System.out.println(maxInBstRec(root));
     }
