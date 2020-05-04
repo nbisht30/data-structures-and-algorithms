@@ -153,6 +153,41 @@ public class BinaryTree {
         System.out.println();
     }
 
+    //LC: https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/529/week-2/3293/
+    public int getDiameter() {
+        if (root == null)
+            return 0;
+        if (root.left == null && root.right == null) {
+            return 0;
+        }
+        int[] ints = diameterOfBinaryTree(root);
+        return Math.max(ints[0] - 1, ints[1]);
+    }
+
+    private int[] diameterOfBinaryTree(Node node) { // int heightTillNow, int maxTillNow
+
+        if (node.left == null && node.right == null) {
+            return new int[]{1, 1};
+        }
+
+        int[] left = {0, 0};
+        int[] right = {0, 0};
+
+        if (node.left != null)
+            left = diameterOfBinaryTree(node.left);
+
+        if (node.right != null)
+            right = diameterOfBinaryTree(node.right);
+
+
+        int[] retArr = new int[2];
+        int maxHeightTillNow = Math.max(left[0], right[0]);
+        retArr[0] = maxHeightTillNow + 1;
+        int maxTillNow = Math.max(left[1], right[1]);
+        retArr[1] = left[0] + right[0] > maxTillNow ? left[0] + right[0] : maxTillNow;
+        return retArr;
+    }
+
     boolean isBTaBST() {
         return isBTaBSTRec(root, -Long.MIN_VALUE, Long.MAX_VALUE);
     }
