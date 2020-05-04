@@ -6,10 +6,10 @@ package leetcode.thirtydaychallenge;
  */
 public class Day5StockBuySell {
     public static void main(String[] args) {
-        System.out.println(maxProfitBruteForce(new int[]{}));
+        System.out.println(maxProfit(new int[]{}));
     }
 
-    public static int maxProfitBruteForce(int[] prices) {
+    public static int maxProfit(int[] prices) {  //Simple one pass
         int maxProfit = 0;
         for (int i = 1; i < prices.length; i++) {
             if (prices[i] > prices[i - 1]) {
