@@ -4,7 +4,7 @@ package leetcode.randomproblems.binarytreesandbst;
 public class P98ValidateBST {
 
     public boolean isValidBST(TreeNode root) {
-        return isBTaBSTRec(root, -Long.MIN_VALUE, Long.MAX_VALUE);
+        return isBTaBSTRec(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
     private boolean isBTaBSTRec(TreeNode node, long rangeMin, long rangeMax) {
