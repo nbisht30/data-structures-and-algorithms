@@ -12,14 +12,12 @@ public class P98ValidateBST {
         if (node.val >= rangeMax || node.val <= rangeMin) {
             return false;
         }
-        boolean overallStatus = true;
-
         if (node.left != null)
-            overallStatus &= isBTaBSTRec(node.left, rangeMin, node.val);
-        if (!overallStatus) return false;
+            if(!isBTaBSTRec(node.left, rangeMin, node.val)) return false;
 
-        if (node.right != null) overallStatus &= isBTaBSTRec(node.right, node.val, rangeMax);
-        return overallStatus;
+        if (node.right != null)
+            if(!isBTaBSTRec(node.right, node.val, rangeMax)) return false;
+        return true;
     }
 
     private class TreeNode {
