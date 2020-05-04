@@ -2,10 +2,10 @@
 Learning data structures and algorithms through coding problems on major coding platforms.
 
 <section>
-<strong>Leetcode Problems Solved</strong>
-Go to src -> leetcode
+<h2>Leetcode Problems Solved</h2>
+<br>Go to src -> leetcode
 
-<em> 30 Day Challenge [April 2020]</em>
+<h4>30 Day Challenge [April 2020]</h4>
 <br>Day1SingleNumber
 <br>Day2HappyNumber
 <br>Day3MaximumSubarray
@@ -21,6 +21,8 @@ Go to src -> leetcode
 <br>Day14PerformStringShifts
 <br>Day15ProdOfArrayExceptSelf
 <br>Day16ParenthesisString
-<br>
-<br>
+
+<h4>Other Problems</h4>
+<br>P98ValidateBST -> https://leetcode.com/problems/validate-binary-search-tree/
+
 </section>
