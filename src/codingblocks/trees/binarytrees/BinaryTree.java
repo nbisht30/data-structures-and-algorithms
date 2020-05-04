@@ -153,6 +153,25 @@ public class BinaryTree {
         System.out.println();
     }
 
+    boolean isBTaBST() {
+        return isBTaBSTRec(root, -Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    // Leetcode: https://leetcode.com/problems/validate-binary-search-tree/submissions/
+    private boolean isBTaBSTRec(Node node, long rangeMin, long rangeMax) {
+        if (node == null) return false; //if tree has no node
+        if (node.data > rangeMax || node.data < rangeMin) {
+            return false;
+        }
+        boolean overallStatus = true;
+
+        if (node.left != null)
+            overallStatus &= isBTaBSTRec(node.left, rangeMin, node.data);
+        if (!overallStatus) return false;
+
+        if (node.right != null) overallStatus &= isBTaBSTRec(node.right, node.data, rangeMax);
+        return overallStatus;
+    }
 
     private class Node {
         int data;
