@@ -1,4 +1,4 @@
-package dsjava.Arrays;
+package gfg.dsacourse.week2.Arrays;
 
 import java.util.Scanner;
 

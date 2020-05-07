@@ -1,5 +1,7 @@
-package dsjava.SinglyLinkedLists;
-
+package gfg.dsacourse.week23.SinglyLinkedLists;
+/*
+From the course: Practical Data Structures & Algorithms in Java + HW
+ */
 public class SinglyLinkedList {
 
 	private Node start;

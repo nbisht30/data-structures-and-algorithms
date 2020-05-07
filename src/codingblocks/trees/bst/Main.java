@@ -1,7 +1,6 @@
 package codingblocks.trees.bst;
 
-import dsjava.SinglyLinkedLists.Node;
-import sun.java2d.windows.GDIWindowSurfaceData;
+import gfg.dsacourse.week23.SinglyLinkedLists.Node;
 
 /**
  * @author Nikhil Bisht

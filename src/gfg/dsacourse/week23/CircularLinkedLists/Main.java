@@ -1,4 +1,4 @@
-package dsjava.CircularLinkedLists;
+package gfg.dsacourse.week23.CircularLinkedLists;
 
 public class Main {
 

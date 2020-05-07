@@ -1,5 +1,7 @@
-package dsjava.CircularLinkedLists;
-
+package gfg.dsacourse.week23.CircularLinkedLists;
+/*
+From the course: Practical Data Structures & Algorithms in Java + HW
+ */
 public class CircularLinkedList {
 
 	private Node rear;

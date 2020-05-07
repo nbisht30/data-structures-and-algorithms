@@ -1,4 +1,4 @@
-package dsjava.SinglyLinkedLists;
+package gfg.dsacourse.week23.SinglyLinkedLists;
 
 public class Node {
 	public int data;
