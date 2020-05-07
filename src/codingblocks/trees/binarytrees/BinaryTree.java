@@ -192,7 +192,7 @@ public class BinaryTree {
         return isBTaBSTRec(root, -Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    // LC: https://leetcode.com/problems/validate-binary-search-tree/submissions/
+    // LC: https://leetcode.com/problems/dataidate-binary-search-tree/submissions/
     private boolean isBTaBSTRec(Node node, long rangeMin, long rangeMax) {
         if (node == null) return false; //if tree has no node
         if (node.data > rangeMax || node.data < rangeMin) {
@@ -208,6 +208,57 @@ public class BinaryTree {
         return overallStatus;
     }
 
+
+    // LC: https://leetcode.com/problems/cousins-in-binary-tree/
+    public boolean isCousins(int x, int y) {
+        if (root == null) return false;
+        int[] depthXY = new int[2];
+        getDepth(depthXY, null, root, x, y, 0, false);
+        if (depthXY[0] == -1 && depthXY[1] == -1) return false;
+        if (depthXY[0] == depthXY[1]) return true;
+        return false;
+    }
+
+    private void getDepth(int[] depth, Node parent, Node node, int x, int y, int d, boolean isLeft) {
+        if (parent != null) {
+            if (node.data == x) {
+                if (depth[1] == 0) {
+                    if (isLeft) {
+                        if (parent.right != null && parent.right.data == y) {
+                            depth[0] = depth[1] = -1;
+                            return;
+                        }
+                    } else {
+                        if (parent.left != null && parent.left.data == y) {
+                            depth[0] = depth[1] = -1;
+                            return;
+                        }
+                    }
+                }
+                depth[0] = d;
+            }
+            if (node.data == y) {
+                if (depth[0] == 0) {
+                    if (isLeft) {
+                        if (parent.right != null && parent.right.data == x) {
+                            depth[0] = depth[1] = -1;
+                            return;
+                        }
+                    } else {
+                        if (parent.left != null && parent.left.data == x) {
+                            depth[0] = depth[1] = -1;
+                            return;
+                        }
+                    }
+                }
+                depth[1] = d;
+            }
+        }
+        if (node.left != null) getDepth(depth, node, node.left, x, y, d + 1, true);
+            if (node.right != null) getDepth(depth, node, node.right, x, y, d + 1, false);
+    }
+
+
     private class Node {
         int data;
         Node left;
@@ -219,4 +270,6 @@ public class BinaryTree {
             this.right = right;
         }
     }
+
+
 }

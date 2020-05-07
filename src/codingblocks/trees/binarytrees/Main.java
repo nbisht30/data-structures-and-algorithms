@@ -21,8 +21,11 @@ public class Main {
         btree.levelOrderTraversal();*/
 
 
-        BinaryTree diaTree = new BinaryTree();
-        System.out.println(diaTree.getDiameter());
+/*        BinaryTree diaTree = new BinaryTree();
+        System.out.println(diaTree.getDiameter());*/
+
+        BinaryTree cousins = new BinaryTree();
+        System.out.println(cousins.isCousins(4,5));
 
 
     }
@@ -52,6 +55,26 @@ false
 false
 true
 60
+false
+false
+ */
+
+/*
+For cousins in a tree:-
+
+1
+true
+2
+false
+true
+4
+false
+false
+true
+3
+false
+true
+5
 false
 false
  */
