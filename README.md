@@ -21,6 +21,7 @@ Day1SingleNumber -> P136 https://leetcode.com/problems/single-number/
 <br>Day14PerformStringShifts -> Premium problem
 <br>Day15ProdOfArrayExceptSelf -> P238 https://leetcode.com/problems/product-of-array-except-self/
 <br>Day16ParenthesisString -> P678 https://leetcode.com/problems/valid-parenthesis-string/
+<br>Day20BSTFromPreorderTraversal -> P1008 https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
 <h4>Other Problems</h4>
 <h5>Trees</h5>
 P98ValidateBST -> https://leetcode.com/problems/validate-binary-search-tree/
