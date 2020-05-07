@@ -15,6 +15,7 @@ Day1SingleNumber -> P136 https://leetcode.com/problems/single-number/
 <br>Day8MiddleInALinkedList -> P876 https://leetcode.com/problems/middle-of-the-linked-list/
 <br>Day9BackspaceStringCompare -> P844 https://leetcode.com/problems/backspace-string-compare/
 <br>Day10MinStack -> P155 https://leetcode.com/problems/min-stack/
+<br>Day11DiameterOfABinaryTree -> P543 https://leetcode.com/problems/diameter-of-binary-tree/
 <br>Day12LastStoneWeight -> P1046 https://leetcode.com/problems/last-stone-weight/
 <br>Day13ContiguousArray -> P525 https://leetcode.com/problems/contiguous-array/
 <br>Day14PerformStringShifts -> Premium problem
