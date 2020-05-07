@@ -192,7 +192,7 @@ public class BinaryTree {
         return isBTaBSTRec(root, -Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    // Leetcode: https://leetcode.com/problems/validate-binary-search-tree/submissions/
+    // LC: https://leetcode.com/problems/validate-binary-search-tree/submissions/
     private boolean isBTaBSTRec(Node node, long rangeMin, long rangeMax) {
         if (node == null) return false; //if tree has no node
         if (node.data > rangeMax || node.data < rangeMin) {

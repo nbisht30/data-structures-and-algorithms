@@ -12,6 +12,9 @@ public class BST {
         this.root = constBST(arr, 0, arr.length - 1);
     }
 
+    BST() {
+    }
+
     private Node constBST(int[] arr, int lo, int hi) {
         if (lo > hi) return null;
 
@@ -65,7 +68,7 @@ public class BST {
         recursiveDisplay(root);
     }
 
-    private void recursiveDisplay(Node node) {
+    public void recursiveDisplay(Node node) {
         if (node == null) {
             return;
         }
@@ -151,7 +154,26 @@ public class BST {
         else return maxInBstRec(node.right);
     }
 
-    private class Node {
+    // Construct BST from preorder traversal
+    public Node bstFromPreorder(int[] preorder) {
+        return helper(preorder, new int[]{0}, Integer.MAX_VALUE);
+    }
+
+    private Node helper(int[] preorder, int i[], int limit) {
+        if (i[0] == preorder.length || preorder[i[0]] > limit) return null;
+        int rootval = preorder[i[0]];
+
+        Node root = new Node();
+        root.data = rootval;
+
+        i[0]++;
+
+        root.left = helper(preorder, i, rootval);
+        root.right = helper(preorder, i, limit);
+        return root;
+    }
+
+    public class Node {
         int data;
         Node left;
         Node right;

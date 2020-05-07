@@ -23,6 +23,8 @@ public class Main {
 
         BinaryTree diaTree = new BinaryTree();
         System.out.println(diaTree.getDiameter());
+
+
     }
 }
 /*
@@ -55,7 +57,7 @@ false
  */
 
 /*
-For diameter of a tree:
+For diameter of a tree: https://drive.google.com/open?id=1HhgOf-eApP4XvMYTOD-sXfr8a_NFtPHK (image of the tree)
 
 Enter data for root node:
 1
