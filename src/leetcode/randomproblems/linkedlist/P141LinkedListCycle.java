@@ -1,14 +1,5 @@
 package leetcode.randomproblems.linkedlist;
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
 
 public class P141LinkedListCycle {
     public boolean hasCycle(ListNode head) {
@@ -23,6 +14,16 @@ public class P141LinkedListCycle {
         }
 
         return false;
+    }
+
+    private class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
     }
 
 }
