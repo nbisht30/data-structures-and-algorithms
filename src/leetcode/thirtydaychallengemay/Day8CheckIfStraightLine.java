@@ -25,7 +25,6 @@ class Day8CheckIfStraightLine {
     public static boolean checkStraightLine(int[][] coordinates) {
         if (coordinates.length == 2) return true;
 
-        //Look for the first and second min x and corresponding y
         int diffX = Math.abs(coordinates[1][0] - coordinates[0][0]);
         int diffY = Math.abs(coordinates[1][1] - coordinates[0][1]);
 
