@@ -1,4 +1,4 @@
-package leetcode.randomproblems.strings;
+package leetcode.randomproblems.linkedlist;
 
 /**
  * Definition for singly-linked list.
@@ -9,7 +9,7 @@ package leetcode.randomproblems.strings;
  * }
  */
 //https://leetcode.com/problems/add-two-numbers/
-public class AddTwoNumbers {
+public class P2AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int sum;
