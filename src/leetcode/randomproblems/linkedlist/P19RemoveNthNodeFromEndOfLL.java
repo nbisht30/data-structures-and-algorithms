@@ -2,7 +2,6 @@ package leetcode.randomproblems.linkedlist;
 
 /*
  https://leetcode.com/problems/remove-nth-node-from-end-of-list/
-
  */
 class P19RemoveNthNodeFromEndOfLL {
     public ListNode removeNthFromEnd(ListNode head, int n) {
