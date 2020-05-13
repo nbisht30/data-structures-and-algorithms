@@ -6,7 +6,8 @@ import java.util.Map;
 import java.util.Set;
 // https://leetcode.com/problems/find-the-town-judge/
 class Day10_P997FindTheTownJudge {
-    
+
+    // Indegree and out degree property of graphs: Person with indegree from all remaining persons and outdegree of 0 is the answer
     public int findJudge(int N, int[][] trust) {
         int[] indegree = new int[N + 1];
         int[] outdegree = new int[N + 1];
