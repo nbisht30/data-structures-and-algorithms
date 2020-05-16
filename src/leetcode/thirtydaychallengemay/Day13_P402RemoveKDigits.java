@@ -8,7 +8,6 @@ class Day13_P402RemoveKDigits {
         ));
     }
 
-
     // This was very hard for me, need to practice.
     public static String removeKdigits(String num, int k) {
         if (k >= num.length()) return "0";
