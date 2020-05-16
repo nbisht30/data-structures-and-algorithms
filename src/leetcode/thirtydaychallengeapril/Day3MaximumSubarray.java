@@ -64,7 +64,7 @@ public class Day3MaximumSubarray {
 
 
         //Kadane's Algorithm - O(n) time O(1) space.
-        //Intuitiion -Instead of the above solution that needs an extra array for memoization
+        //Intuition -Instead of the above solution that needs an extra array for memoization
         //we can just use a single variable as we only need the value of max sum till last(maxTillLastIndex)
         //index and because we're finding the overall max simultaneously in the above for loop.
         //This is actual Kadane's algorithm, and is the most efficient solution to this problem for time and space.

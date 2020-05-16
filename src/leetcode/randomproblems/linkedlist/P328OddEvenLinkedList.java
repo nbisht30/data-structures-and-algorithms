@@ -1,4 +1,5 @@
 package leetcode.randomproblems.linkedlist;
+
 //https://leetcode.com/problems/odd-even-linked-list/
 class P328OddEvenLinkedList {
     public ListNode oddEvenList(ListNode head) {
@@ -43,6 +44,39 @@ class P328OddEvenLinkedList {
 
         return oddSt;
 
+    }
+
+    public ListNode oddEvenListAnotherImpl(ListNode head) {
+        if (head == null) return null;
+
+        if (head.next == null) return head;
+
+        ListNode oddTail = head;
+        ListNode oddHead = oddTail;
+        ListNode evenTail = head.next;
+        ListNode evenHead = evenTail;
+        head = head.next.next;
+        oddTail.next = null;
+        evenTail.next = null;
+
+        while (head != null && head.next != null) {
+            oddTail.next = head;
+            evenTail.next = head.next;
+            head = head.next.next;
+            oddTail = oddTail.next;
+            oddTail.next = null;
+            evenTail = evenTail.next;
+            evenTail.next = null;
+        }
+
+        if (head != null) {
+            oddTail.next = head;
+            oddTail = oddTail.next;
+        }
+
+        oddTail.next = evenHead;
+
+        return oddHead;
     }
 
     public class ListNode {
