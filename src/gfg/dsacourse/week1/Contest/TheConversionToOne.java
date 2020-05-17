@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class TheConversionToOne {
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
 		BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
 		int tests = in.nextInt();

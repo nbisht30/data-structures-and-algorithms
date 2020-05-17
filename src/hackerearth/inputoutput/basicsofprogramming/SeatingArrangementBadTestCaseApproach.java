@@ -9,7 +9,7 @@ import java.util.Scanner;
  * */
 public class SeatingArrangementBadTestCaseApproach {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		Scanner in = new Scanner(System.in);
 		int T, ch;
 		T = in.nextInt();

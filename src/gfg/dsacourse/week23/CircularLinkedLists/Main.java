@@ -3,7 +3,6 @@ package gfg.dsacourse.week23.CircularLinkedLists;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		CircularLinkedList ilist = new CircularLinkedList();
 		System.out.println("Size: " + ilist.sizeOfList);
 		ilist.insertFirst(5);

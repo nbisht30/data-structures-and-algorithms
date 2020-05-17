@@ -9,7 +9,7 @@ public class SoftSort {
 	static long M[] = new long[1000001];
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
+
 		M[0] = M[1] = 1;
 		Scanner in = new Scanner(System.in);
 		BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));

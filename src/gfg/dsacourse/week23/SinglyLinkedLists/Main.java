@@ -3,7 +3,6 @@ package gfg.dsacourse.week23.SinglyLinkedLists;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		SinglyLinkedList ilist = new SinglyLinkedList();
 		System.out.println("Size: " + ilist.sizeOfList);
 		ilist.insertFirst(5);
