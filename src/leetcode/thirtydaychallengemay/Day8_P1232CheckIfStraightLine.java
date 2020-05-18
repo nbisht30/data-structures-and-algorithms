@@ -1,6 +1,6 @@
 package leetcode.thirtydaychallengemay;
 
-class Day8CheckIfStraightLine {
+class Day8_P1232CheckIfStraightLine {
     public static void main(String[] args) {
         System.out.println(checkStraightLine(new int[][]{
                 {8, 6}, {-2, 0}, {-3, -1}, {-6, -10}, {7, -1}, {-1, -7}, {5, 1}, {-7, 8}, {7, 8}, {0, 2}

@@ -1,6 +1,6 @@
 package leetcode.thirtydaychallengemay;
 
-class Day9PerfectSquare {
+class Day9_P367ValidPerfectSquare {
     public boolean isPerfectSquare(int num) {
         return isPerfectSquareBinarySearch(num);
     }
