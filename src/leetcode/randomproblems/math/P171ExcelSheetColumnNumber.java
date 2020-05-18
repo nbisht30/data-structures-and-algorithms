@@ -1,4 +1,4 @@
-package leetcode.randomproblems.misc;
+package leetcode.randomproblems.math;
 
 class P171ExcelSheetColumnNumber {
     public int titleToNumber(String s) {
