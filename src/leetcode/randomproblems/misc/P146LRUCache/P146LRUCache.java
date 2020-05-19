@@ -1,4 +1,4 @@
-package leetcode.randomproblems.misc;
+package leetcode.randomproblems.misc.P146LRUCache;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
