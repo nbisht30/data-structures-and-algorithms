@@ -1,5 +1,6 @@
 package leetcode.thirtydaychallengemay;
 
+// @TODO: Understand the optimal solution: https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/
 class Day19_P230KthSmallestElementInABST {
     public int kthSmallest(TreeNode root, int k) {
         int res[] = new int[1];
