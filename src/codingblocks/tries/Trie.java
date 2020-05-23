@@ -30,7 +30,7 @@ public class Trie {
             if (parent.isTerminal) {
                 // word already exists
             } else {
-                parent.isTerminal = true;
+                parent.isTerminal = true;  // since word is completed, make it terminal node
                 this.numWords++;
             }
             return;
@@ -38,9 +38,9 @@ public class Trie {
         char curChar = word.charAt(0);
         String remString = word.substring(1);
         Node child = parent.children.get(curChar);
-        if (child == null) {
+        if (child == null) {  // if parent node does not have this character
             child = new Node(curChar, false);
-            parent.children.put(curChar, child);
+            parent.children.put(curChar, child); // add it
         }
         this.addWord(child, remString);
     }
