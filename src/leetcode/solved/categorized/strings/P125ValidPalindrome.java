@@ -4,7 +4,8 @@ package leetcode.solved.categorized.strings;
  * @author Nikhil Bisht
  * @date 05-04-2020
  */
-public class ValidPalindrome {
+//https://leetcode.com/problems/valid-palindrome/
+public class P125ValidPalindrome {
     public static void main(String[] args) {
         System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
     }

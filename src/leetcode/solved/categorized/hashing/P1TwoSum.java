@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.strings;
+package leetcode.solved.categorized.hashing;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
  * @author Nikhil Bisht
  * @date 05-04-2020
  */
-public class TwoSum {
+public class P1TwoSum {
     public static void main(String[] args) {
         int[] ints = twoSum3(new int[]{2, 7, 7, 15}, 14);
         for (int i : ints)

@@ -5,7 +5,7 @@ package leetcode.solved.categorized.strings;
  * @date 05-04-2020
  */
 /*https://leetcode.com/problems/split-a-string-in-balanced-strings/*/
-public class SplitStringInBalancedStrings {
+public class P1221SplitStringInBalancedStrings {
     public static void main(String[] args) {
         System.out.println(balancedStringSplit("LLLLRRRR"));
     }
