@@ -1,4 +1,4 @@
-package leetcode.unsolved;
+package leetcode.unsolved.dp;
 
 class P1035UncrossedLines {
     public int maxUncrossedLines(int[] A, int[] B) {

@@ -1,4 +1,4 @@
-package leetcode.unsolved;
+package leetcode.unsolved.dp;
 
 /**
  * @author Nikhil Bisht
