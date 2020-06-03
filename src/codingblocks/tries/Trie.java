@@ -73,37 +73,26 @@ public class Trie {
         return searchWord(thisChild, word, ind + 1);
     }
 
-    public boolean removeWord(String word) {
-        if (word.length() == 0) return false;
-        int ref[] = new int[]{0};
-        Node child = this.root.children.get((word.charAt(0)));
-        removeWord(child, word, 1, ref);
-        if (ref[0] == 1) return true;
-        else return false;
+    public void removeWord(String word) {
+        removeWord(this.root, word, 0);
     }
 
-    private Node removeWord(Node curNode, String word, int ind, int[] ref) {
+    private void removeWord(Node curNode, String word, int ind) {
         if (ind == word.length()) {
             if (curNode.isTerminal) {
-                ref[0] = 1;
-                if (curNode.children.size() > 0) { //word was found but there are other words using this word as prefix
-                    curNode.isTerminal = false;
-                    return null; //word removed
-                } else {
-                    return curNode;
-                }
-            } else {
-                return null; //word doesnt exist.
+                curNode.isTerminal = false;
+                this.numWords--;
+            } else { // word is a part of some other word
             }
+            return;
         }
         Node child = curNode.children.get(word.charAt(ind));
-        if (child == null) return null; //word doesnt exist.
-        Node thisChildsChild = removeWord(child, word, ind + 1, ref);
-        if (thisChildsChild != null) {
-            curNode.children.remove(thisChildsChild.data);
-            if (curNode.isTerminal) return null;
-            else return curNode;
-        } else return null;
+        if (child == null) return; //word doesnt exist.
+        this.removeWord(child, word, ind + 1);
+
+        if (!child.isTerminal && child.children.size() == 0) {
+            curNode.children.remove(child.data);
+        }
     }
 
     private class Node {

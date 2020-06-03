@@ -21,6 +21,7 @@ public class TrieClient {
         System.out.println(trie.searchWord("seen"));
 */
 
+        trie.removeWord("arts");
         trie.removeWord("art");
         trie.removeWord("bug");
         trie.display();
