@@ -7,7 +7,8 @@ import java.util.Set;
 class P287FindTheDuplicateNumber {
 
     /*
-    This is a simple solution for this problems using sets but this takes a lot of extra space.
+    Using Sets:
+    This is a simple solution for this problem using sets but this takes a lot of extra space.
      */
     public int findDuplicate(int[] nums) {
         Set<Integer> dups = new HashSet<>();
@@ -19,14 +20,12 @@ class P287FindTheDuplicateNumber {
     }
 
     /*
-    TODO: The O(1) space solution for this problems is using cycle detection
-    Code this.
-    https://leetcode.com/problems/find-the-duplicate-number/solution/ : Check approach 3
+    Using Floyds cycle detection(tortoise and hare):
 
-    https://www.youtube.com/watch?v=iKjftj3p8ME
-
+    Explanation: https://leetcode.com/problems/find-the-duplicate-number/solution/ : Check approach 3
     https://keithschwarz.com/interesting/code/?dir=find-duplicate
 
+    Video Explanation: https://www.youtube.com/watch?v=iKjftj3p8ME
 
     First part of this problem is proving that one duplicate element must exist:-
     Given, arrays nums has n + 1 integers and each integer is between 1 and n(inclusive)
@@ -35,6 +34,11 @@ class P287FindTheDuplicateNumber {
     https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2015/counting/tp10-1/the-pigeonhole-principle/)
     which basically is a counting principle that says that if there are more Pegions than pegionholes then you must have at least
     2 Pegions in the same hole.
+
+    So here you can say you have n + 1 Pegionholes/Elements but the actual number of different Pegions/Numbers
+    can only be n (i.e from 1 to n), so there has to be an extra 1 Pegion/Number.
+
+
 
 
 
@@ -48,7 +52,7 @@ class P287FindTheDuplicateNumber {
 
     The best video explanation: https://www.youtube.com/watch?v=s_nYIsbPqqQ
 
-    The problems with this approach: Someone might say that you are changing the array contents.(But we can also take absolute
+    The problem with this approach: Someone might say that you are changing the array contents.(But we can also take absolute
     for each value in an extra pass)
      */
     public int findDuplicateInOrderNWithoutExtraSpace(int[] nums) {
@@ -67,8 +71,7 @@ class P287FindTheDuplicateNumber {
             int index = Math.abs(nums[i]);
 
             // we check if nums[index] is already negated, if yes then we must have
-            // negated it and now since we've found it again we'll return it
-            // as it would be duplicate.
+            // negated it earlier and found it again which means that it would be the duplicate we intended to find.
             if (nums[index] < 0) {
                 return index;
             } else {

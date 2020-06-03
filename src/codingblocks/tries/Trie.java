@@ -60,7 +60,7 @@ public class Trie {
     }
 
     public boolean searchWord(String word) {
-        if(this.numWords == 0) return false;
+        if (this.numWords == 0) return false;
         return searchWord(this.root, word, 0);
     }
 
@@ -71,6 +71,39 @@ public class Trie {
         Node thisChild = node.children.get(word.charAt(ind));
         if (thisChild == null) return false;
         return searchWord(thisChild, word, ind + 1);
+    }
+
+    public boolean removeWord(String word) {
+        if (word.length() == 0) return false;
+        int ref[] = new int[]{0};
+        Node child = this.root.children.get((word.charAt(0)));
+        removeWord(child, word, 1, ref);
+        if (ref[0] == 1) return true;
+        else return false;
+    }
+
+    private Node removeWord(Node curNode, String word, int ind, int[] ref) {
+        if (ind == word.length()) {
+            if (curNode.isTerminal) {
+                ref[0] = 1;
+                if (curNode.children.size() > 0) { //word was found but there are other words using this word as prefix
+                    curNode.isTerminal = false;
+                    return null; //word removed
+                } else {
+                    return curNode;
+                }
+            } else {
+                return null; //word doesnt exist.
+            }
+        }
+        Node child = curNode.children.get(word.charAt(ind));
+        if (child == null) return null; //word doesnt exist.
+        Node thisChildsChild = removeWord(child, word, ind + 1, ref);
+        if (thisChildsChild != null) {
+            curNode.children.remove(thisChildsChild.data);
+            if (curNode.isTerminal) return null;
+            else return curNode;
+        } else return null;
     }
 
     private class Node {

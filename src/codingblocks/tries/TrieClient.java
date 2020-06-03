@@ -15,10 +15,14 @@ public class TrieClient {
         trie.addWord("seen");
         trie.addWord("see");
         trie.addWord("amit");
-
+/*
         trie.display();
-
         System.out.println(trie.searchWord("see"));
         System.out.println(trie.searchWord("seen"));
+*/
+
+        trie.removeWord("art");
+        trie.removeWord("bug");
+        trie.display();
     }
 }
