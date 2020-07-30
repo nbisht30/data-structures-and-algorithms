@@ -15,7 +15,7 @@ public class HuffmanClient {
         System.out.println(huffmanEncoderDecoder.decode(codedString));
 
 
-        // codedString currently occupies a more bytes than the orriginal string str as it has more number of characters
+        // codedString currently occupies a more bytes than the original string str as it has more number of characters
         // so we need to store bits as bits, instead of storing them as characters inside a string.
 
         BitSet bitSet = new BitSet(codedString.length());
