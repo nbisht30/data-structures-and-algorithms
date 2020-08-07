@@ -54,10 +54,10 @@ class WordDictionary {
             boolean res = false;
             TrieNode currentNode;
             for (Integer key : curr.child.keySet()) {
-                if (currPosition == word.length() - 1) {
-                    currentNode = curr.child.get(key);
-                    res = res || currentNode.endsHere > 0;
-                } else if (trieSearch(word, curr.child.get(key), currPosition + 1)) {
+                if (currPosition == word.length() - 1) { // If you've reached the end of the string.
+                    currentNode = curr.child.get(key); // Then get the node at 'key'
+                    res = res || currentNode.endsHere > 0; // Check if it is the end of a word
+                } else if (trieSearch(word, curr.child.get(key), currPosition + 1)) {  // Otherwise, run trieSearch again using the word at 'key'
                     return true;
                 }
             }
