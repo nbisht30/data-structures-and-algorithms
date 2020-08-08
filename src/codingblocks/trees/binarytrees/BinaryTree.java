@@ -1,7 +1,6 @@
 package codingblocks.trees.binarytrees;
 
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author Nikhil Bisht
