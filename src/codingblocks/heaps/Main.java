@@ -19,7 +19,9 @@ public class Main {
         heap.display();
         heap.add(3);
         heap.display();
-        heap.add(1);
+//        heap.add(1);
+//        heap.display();
+        System.out.println(heap.delete() + " deleted!");
         heap.display();
     }
 }
