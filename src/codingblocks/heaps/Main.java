@@ -23,5 +23,11 @@ public class Main {
 //        heap.display();
         System.out.println(heap.delete() + " deleted!");
         heap.display();
+        System.out.println(heap.delete() + " deleted!");
+        heap.display();
+        System.out.println(heap.delete() + " deleted!");
+        heap.display();
+        System.out.println(heap.delete() + " deleted!");
+        heap.display();
     }
 }

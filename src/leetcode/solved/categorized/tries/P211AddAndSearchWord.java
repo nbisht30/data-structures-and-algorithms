@@ -2,19 +2,19 @@ package leetcode.solved.categorized.tries;
 
 import java.util.HashMap;
 
-class WordDictionary {
+class P211AddAndSearchWord {
 
     TrieNode root;
 
     /**
      * Initialize your data structure here.
      */
-    public WordDictionary() {
+    public P211AddAndSearchWord() {
         root = getNode('/');
     }
 
     public static void main(String[] args) {
-        WordDictionary dictionary = new WordDictionary();
+        P211AddAndSearchWord dictionary = new P211AddAndSearchWord();
         dictionary.addWord("bad");
         dictionary.addWord("dad");
         dictionary.addWord("mad");
