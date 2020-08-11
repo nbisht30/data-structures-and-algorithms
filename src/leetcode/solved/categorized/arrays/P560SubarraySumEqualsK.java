@@ -1,6 +1,9 @@
 package leetcode.solved.categorized.arrays;
 
-class Solution {
+import java.util.HashMap;
+import java.util.Map;
+
+class P560SubarraySumEqualsK {
     
     // O(n) solution
     public int subarraySum(int[] nums, int k) {
