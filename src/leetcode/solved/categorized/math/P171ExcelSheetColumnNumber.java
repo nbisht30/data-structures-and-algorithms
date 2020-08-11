@@ -15,4 +15,18 @@ class P171ExcelSheetColumnNumber {
         }
         return colNum;
     }
+
+    /*
+    I was able to code it up on my own in August challenge, using the below approach
+    It is actually same as above approach, but we dont need to use Math.pow()
+    */
+    public int titleToNumberAugChallenge(String s) {
+        int res = 0;
+        int unitPlace = 1;
+        for(int i = s.length() - 1; i >= 0; i--){
+            res += ((s.charAt(i) - 'A' + 1) * unitPlace);
+            unitPlace *= 26;
+        }
+        return res;
+    }
 }
