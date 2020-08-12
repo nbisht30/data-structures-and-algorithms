@@ -1,6 +1,7 @@
 package leetcode.solved.categorized.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class P119PascalsTriangleII {
@@ -8,38 +9,15 @@ class P119PascalsTriangleII {
         System.out.println(getRow(3));
     }
     public static List<Integer> getRow(int rowIndex) {
-        
-        List<Integer> retLst = new ArrayList<Integer>();
-        
-        if(rowIndex == 0) {
-            retLst.add(1);
-            return retLst;
-        }
-        
-        int[] arr = new int[35];
-        int st = 0, end = 1;
-        int cnt = 1;
-        arr[st] = 1; arr[end] = 1;
-        
-        if(rowIndex > 1) {
-           
-            while(cnt < rowIndex){
-                int prev = arr[st];
-                int curr;
-                for(int i = st + 1; i <= end; i++){
-                    curr = arr[i];
-                    arr[i] = curr + prev;
-                    prev = curr;
-                }
-                arr[++end] = 1;
-                cnt++;
-            }
-        }
-        
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] > 0) retLst.add(arr[i]);
-        }
-        
-        return retLst;
+
+        Integer[] arr = new Integer[rowIndex + 1];
+        Arrays.fill(arr, 0);
+        arr[0] = 1;
+
+        for (int i = 1; i <= rowIndex; i++)
+            for (int j = i; j > 0; j--)
+                arr[j] = arr[j] + arr[j - 1];
+
+        return Arrays.asList(arr);
     }
 }
