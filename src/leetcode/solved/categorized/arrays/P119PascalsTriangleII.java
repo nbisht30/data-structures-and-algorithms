@@ -6,7 +6,7 @@ import java.util.List;
 
 class P119PascalsTriangleII {
     public static void main(String[] args) {
-        System.out.println(getRow(3));
+        System.out.println(getRow(4));
     }
     public static List<Integer> getRow(int rowIndex) {
 
