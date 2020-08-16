@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.arrays;
+package leetcode.solved.categorized.arrays.intervals;
 
 import java.util.ArrayList;
 import java.util.List;
