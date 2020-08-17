@@ -18,4 +18,23 @@ public class P122BestTimeToBuyAndSellStockII {
         }
         return maxProfit;
     }
+
+        public int maxProfitUsingSameApproachAsBTBSS1(int[] prices) { // Same idea as Best Time to Buy and Sell Stock-I
+            int lastMin = Integer.MAX_VALUE;
+            int profit = 0;
+
+            for(int i = 0; i < prices.length; i++){
+                if(prices[i] < lastMin){
+                    lastMin = prices[i];
+                }else{
+                    if(prices[i] > lastMin){
+                        profit += prices[i] - lastMin;
+                        lastMin = prices[i];
+                    }
+                }
+            }
+
+            return profit;
+        }
 }
+

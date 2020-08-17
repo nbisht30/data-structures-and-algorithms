@@ -18,8 +18,9 @@ class P1553MinimumNumberOfDaysToEatNOranges {
     /*
     Intuition:-
   
-    1. n%2 or n%3 is how much distance away n is from being divisible by 2 or 3 
-    (which is done by just subtracting 1), which is best way to minimize the steps
+    1. n%2 or n%3 is how much distance away n is from being divisible by 2 or 3.
+    0 or 1 in case of divisibility by 2 and 0, 1 and 2 in case of divisibility by 3.
+    This would be otherwise done by subtracting 1(step 1 in question) - doing it like this is the best way to minimize the steps.
     
     2. 1 is added because of operations(2nd or 3rd as specified in question) done to decrease n -> n/2 or n -> n/3
     We add 1 because it takes one day to eat n/2 or 2n/3 apples. 
