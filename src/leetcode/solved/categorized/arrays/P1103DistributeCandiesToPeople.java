@@ -1,7 +1,7 @@
 package leetcode.solved.categorized.arrays;
 
 class P1103DistributeCandiesToPeople {
-    // Did without help.(new comment to be put in all problems I did myself, to add to already completed problems when I redo them)
+    // MYSELF.(new comment to be put in all problems I did myself, to add to already completed problems when I redo them)
     public int[] distributeCandies(int candies, int num_people) {
         int[] arr = new int[num_people];
         int loopCount = 0;
