@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 class P967NumbersWithSameConsecutiveDifferences {
-    // NEEDED HELP, TODO AGAIN
+    // NEEDED HELP, CODED AFTER GETTING THE IDEA, TODO AGAIN
     // Time: A lot! (More than 2 hrs in total)
+
+    /*
+    Approach: Recursion or DFS approach.
+    Intuition: If N == 1 then you just return all numbers from 0 to 9 otherwise.
+    You need to consider any combination only when the digit your'e going to add has a
+    difference of k with the digit already present on the left, otherwise you dont consider that combination.
+     */
     public int[] numsSameConsecDiff(int N, int K) {
         List<Integer> list = new ArrayList<Integer>();
         if (N == 1) list.add(0);
