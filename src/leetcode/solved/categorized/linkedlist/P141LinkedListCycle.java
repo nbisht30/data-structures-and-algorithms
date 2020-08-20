@@ -2,6 +2,7 @@ package leetcode.solved.categorized.linkedlist;
 
 
 public class P141LinkedListCycle {
+
     public boolean hasCycle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
