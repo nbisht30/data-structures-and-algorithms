@@ -6,15 +6,12 @@ import java.util.*;
  * @author Nikhil Bisht
  * @date 06-04-2020
  */
-public class P49GroupAnagrams {
-    static int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
-
+public class
+P49GroupAnagrams {
     public static void main(String[] args) {
         groupAnagrams(new String[]{"tin", "ram", "zip", "cry", "pus", "jon", "zip", "pyx"}).
                 forEach(System.out::println);
         System.out.println("My code:- ");
-        groupAnagramsMyImps(new String[]{"tin", "ram", "zip", "cry", "pus", "jon", "zip", "pyx"}).
-                forEach(System.out::println);
     }
 
 
@@ -40,33 +37,46 @@ public class P49GroupAnagrams {
         return returnString;
     }
 
-    public static List<List<String>> groupAnagramsMyImps(String[] strs) {
+    public List<List<String>> groupAnagramsUsingHashCode(String[] strs) {
         //TTS: 45 mins(Could have solved in 12 mins if not for figuring out that prime numbers can be used)
         //My soln : Get a unique id for each anagram and put all anagrams mapping to their ids in a map,
         // then generate a list of anagram groups from the map, this is a better solution as the size of each word in strs can be large.
-        Map<Integer, List<String>> codeWithAnagrams = new HashMap<>();
-        List<List<String>> returnString = new ArrayList<>();
 
-        for (int i = 0; i < strs.length; i++) {
-            int code = getAnagramCode(strs[i]);
-            List<String> strings = codeWithAnagrams.get(code);
-            if (strings == null) {
-                strings = new ArrayList<>();
-                codeWithAnagrams.put(code, strings);
-                returnString.add(strings);
-            }
-            strings.add(strs[i]);
+        // Need one prime number for one letter for each letter in English alphabet.
+        int primes[] = new int[26];
+
+        // Find first 26 primes and fill in the primes array.
+        int i = 0;
+        for(int j = 2; j < 200 && i < 26 ; j++){
+            if(isPrime(j)) primes[i++] = j;
         }
-        return returnString;
+
+        // Map words to hashcode
+        Map<Integer, List<String>> map = new HashMap<>();
+
+        for(String s: strs){
+            int code = hashCode(primes, s);
+            map.putIfAbsent(code, new ArrayList<>());
+            map.get(code).add(s);
+        }
+
+        List<List<String>> res = new ArrayList<>();
+        for(Integer code: map.keySet()) res.add(map.get(code));
+
+        return res;
     }
 
-    public static int getAnagramCode(String str) {
-        Integer code = 1;
-        char[] chars = str.toCharArray();
-        for (int i = 0; i < str.length(); i++) {
-            code *= (primes[chars[i] - 97]);
-        }
+    int hashCode(int[] primes, String word){
+        int code = 1;
+        for(char ch: word.toCharArray()) code *= primes[ch - 97];
         return code;
+    }
+
+    boolean isPrime(int n){
+        for(int i = (int)Math.sqrt(n); i >= 2; i--){
+            if(n % i == 0) return false;
+        }
+        return true;
     }
 }
 /*
