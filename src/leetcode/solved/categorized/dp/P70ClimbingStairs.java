@@ -5,10 +5,10 @@ class P70ClimbingStairs {
     //TIME: 9 MIN
     //APPROACH: DYNAMIC PROGRAMMING
     public int climbStairs(int n) {
-        return helper(n, 0);
+        return helper(n);
     }
 
-    public int helper(int n, int c) {
+    public int helper(int n) {
         if (n == 1) return 1;
         if (n == 2) return 2;
         int a[] = new int[n + 1];
