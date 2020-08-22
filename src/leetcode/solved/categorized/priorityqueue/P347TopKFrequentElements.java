@@ -13,7 +13,7 @@ class P347TopKFrequentElements {
 
         // init heap 'the less frequent element first'
         PriorityQueue<Integer> heap =
-                new PriorityQueue<>(Comparator.comparingInt(count::get));
+                new PriorityQueue<>(Comparator.comparingInt(count::get).reversed());
 
         // keep k top frequent elements in the heap
         for (int n : count.keySet()) {

@@ -1,4 +1,4 @@
-package leetcode.contests;
+package leetcode.contests.weekly;
 
 import java.util.HashMap;
 import java.util.Map;

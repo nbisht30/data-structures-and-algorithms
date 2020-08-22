@@ -1,4 +1,4 @@
-package leetcode.contests;
+package leetcode.contests.weekly;
 
 class P1551MinimumOperationsToMakeArrayEqual {
     public int minOperations(int n) {

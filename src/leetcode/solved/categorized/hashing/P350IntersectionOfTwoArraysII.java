@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 class P350IntersectionOfTwoArraysII {
+    //MYSELF
+    //TIME: 13 mins
+    //APPROACH: HASHING
     public int[] intersect(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>();
 
