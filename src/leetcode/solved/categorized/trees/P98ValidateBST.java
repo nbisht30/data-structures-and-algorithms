@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.binarytreesandbst;
+package leetcode.solved.categorized.trees;
 
 
 public class P98ValidateBST {

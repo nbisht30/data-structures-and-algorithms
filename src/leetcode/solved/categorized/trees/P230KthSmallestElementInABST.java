@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.binarytreesandbst;
+package leetcode.solved.categorized.trees;
 
 // @TODO: Understand the optimal solution: https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/
 class P230KthSmallestElementInABST {

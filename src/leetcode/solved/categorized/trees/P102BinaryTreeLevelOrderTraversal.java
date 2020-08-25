@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.binarytreesandbst;
+package leetcode.solved.categorized.trees;
 
 import java.util.ArrayList;
 import java.util.Iterator;
