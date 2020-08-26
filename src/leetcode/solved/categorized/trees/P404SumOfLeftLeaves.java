@@ -1,7 +1,7 @@
 package leetcode.solved.categorized.trees;
 
 
-class Solution {
+class P404SumOfLeftLeaves {
     int sum = 0;
 
     public int sumOfLeftLeaves(TreeNode root) {
