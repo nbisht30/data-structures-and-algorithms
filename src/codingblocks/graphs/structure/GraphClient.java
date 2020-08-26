@@ -25,5 +25,18 @@ public class GraphClient {
         graph.addEdge("F", "G", 8);
 
         graph.display();
+
+        System.out.println("# Edges: " + graph.numberOfEdges());
+        System.out.println("# Vertices: " + graph.numberOfVertices());
+        System.out.println("Contains A - C?: " + graph.containsEdge("A", "C"));
+        System.out.println("Contains E - F?: " + graph.containsEdge("E", "F"));
+        graph.removeEdge("E", "F");
+        System.out.println("Contains E - F?: " + graph.containsEdge("E", "F"));
+        graph.removeVertex("A");
+        graph.display();
+        graph.addVertex("A");
+        graph.display();
+        graph.addEdge("A", "F", 20);
+        graph.display();
     }
 }
