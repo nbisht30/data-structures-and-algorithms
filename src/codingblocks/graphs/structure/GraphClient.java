@@ -1,5 +1,7 @@
 package codingblocks.graphs.structure;
 
+import java.util.HashSet;
+
 /**
  * @author Nikhil Bisht
  * @date 26-08-2020
@@ -38,5 +40,13 @@ public class GraphClient {
         graph.display();
         graph.addEdge("A", "F", 20);
         graph.display();
+
+        // Path
+        System.out.println("Contains path b/w B - E? " + graph.hasPath("B", "E"));
+        System.out.println("Contains path b/w A - F? " + graph.hasPath("A", "F"));
+        System.out.println("Contains path b/w A - B? " + graph.hasPath("A", "B"));
+        graph.removeEdge("E", "G");
+        System.out.println("Removed edge E - G");
+        System.out.println("Contains path b/w A - B? " + graph.hasPath("A", "B"));
     }
 }

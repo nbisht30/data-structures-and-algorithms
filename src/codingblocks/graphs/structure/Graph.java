@@ -1,6 +1,8 @@
 package codingblocks.graphs.structure;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -55,6 +57,22 @@ public class Graph {
         return (vertices.get(vertexA) != null
                 && vertices.get(vertexB) != null)
                 && vertices.get(vertexA).neighbors.containsKey(vertexB);
+    }
+
+    public boolean hasPath(String vertexA, String vertexB) {
+        return hasPathHelper(vertexA, vertexB, new HashSet<>());
+    }
+
+    private boolean hasPathHelper(String vertexA, String vertexB, Set<String> visited) {
+        visited.add(vertexA);
+        if (containsEdge(vertexA, vertexB)) return true;
+
+        for (String neighbor : vertices.get(vertexA).neighbors.keySet()) {
+            if (!visited.contains(neighbor)) {
+                return hasPathHelper(neighbor, vertexB, visited);
+            }
+        }
+        return false;
     }
 
     public void addEdge(String vertexA, String vertexB, int cost) {
