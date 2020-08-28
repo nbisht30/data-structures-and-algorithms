@@ -2,14 +2,15 @@ package leetcode.solved.categorized.arrays.intervals;
 
 import java.util.Arrays;
 // @TODO: DO THIS AGAIN!!!!
+// https://leetcode.com/problems/non-overlapping-intervals/
 class P435NonOverlappingIntervals {
     public int eraseOverlapIntervals(int[][] intervals) {
         if (intervals.length == 0) return 0;
 
         // Sort array by increasing order of end, and if values at end are equal for two intervals,
         // interval with larger start comes first. Sorting using a custom comparator
-        // Node: If Comparator for any two values a and b returns -ve value the a has more priority than b, 
-        // or a comes first. 0 means equal priority and +ve means a comes after b.
+        // Note: If Comparator for any two values a and b returns -ve value the a has more priority than b,
+        // or a comes first in result after sorting. 0 means equal priority and +ve means a comes after b.
         Arrays.sort(intervals, (a, b) -> a[1] == b[1] ? b[0] - a[0] : a[1] - b[1]);
         
         /*
