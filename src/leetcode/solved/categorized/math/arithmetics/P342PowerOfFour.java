@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.math;
+package leetcode.solved.categorized.math.arithmetics;
 
 /**
  * @author Nikhil Bisht

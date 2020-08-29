@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.computationalgeometry;
+package leetcode.solved.categorized.math.computationalgeometry;
 
 import java.util.Random;
 

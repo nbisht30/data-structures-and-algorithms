@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.math;
+package leetcode.solved.categorized.math.others;
 
 class P171ExcelSheetColumnNumber {
     public int titleToNumber(String s) {

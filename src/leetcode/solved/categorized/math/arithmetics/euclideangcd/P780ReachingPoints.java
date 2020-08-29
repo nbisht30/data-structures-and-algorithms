@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.math;
+package leetcode.solved.categorized.math.arithmetics.euclideangcd;
 
 class P780ReachingPoints {
     public boolean reachingPoints(int sx, int sy, int tx, int ty) {

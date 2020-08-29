@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.math;
+package leetcode.solved.categorized.math.computationalgeometry;
 
 class P1232CheckIfStraightLine {
     public static void main(String[] args) {

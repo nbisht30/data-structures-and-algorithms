@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.math;
+package leetcode.solved.categorized.math.arithmetics;
 
 import java.util.HashMap;
 import java.util.Map;
