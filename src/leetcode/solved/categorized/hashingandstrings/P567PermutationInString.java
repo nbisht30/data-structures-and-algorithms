@@ -3,7 +3,7 @@ package leetcode.solved.categorized.hashingandstrings;
 class P567PermutationInString {
     
     
-    // A permutationo of a string is basically just an anagram of that string
+    // A permutation of a string is basically just an anagram of that string
     // I used the strategy which I used in the Problem 438. Find all anagrams in a String
     public boolean checkInclusion(String s1, String s2) {
         

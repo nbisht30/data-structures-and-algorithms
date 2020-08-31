@@ -103,7 +103,7 @@ public class BST {
     }
 
     void deleteNode(int data) {
-        deleteUsingRoot(root, null, data, false);
+        deleteUsingRoot(this.root, null, data, false);
         //true -> left child
         //false -> right child(false for root node also)
     }
@@ -118,18 +118,30 @@ public class BST {
             else {
                 //node to be removed has been found
                 if (node.left == null && node.right == null) {  //node to be removed is leaf node
+                    if (parent == null) {
+                        this.root = null;
+                        return;
+                    }
                     if (isLeftOfParent) {
                         parent.left = null;
                     } else {
                         parent.right = null;
                     }
                 } else if (node.left == null && node.right != null) { // node to be removed has data on its right
+                    if (parent == null) {
+                        this.root = node.right;
+                        return;
+                    }
                     if (isLeftOfParent) {
                         parent.left = node.right;
                     } else {
                         parent.right = node.right;
                     }
                 } else if (node.left != null && node.right == null) { // node to be removed has data on its left
+                    if (parent == null) {
+                        this.root = node.left;
+                        return;
+                    }
                     if (isLeftOfParent) {
                         parent.left = node.left;
                     } else {
