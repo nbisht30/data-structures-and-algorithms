@@ -1,7 +1,7 @@
 package leetcode.solved.categorized.trees;
 
 // https://leetcode.com/problems/delete-node-in-a-bst/
-class Solution {
+class P450DeleteNodeInBST {
     TreeNode root = null;
 
     public TreeNode deleteNode(TreeNode root, int key) {
