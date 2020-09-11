@@ -20,7 +20,6 @@ If you have figured out the O(n) solution, try coding another solution using the
 public class P53MaximumSubarray {
     public static void main(String[] args) {
         System.out.println(maxSubArray(new int[]{1, -3, 2, 1, -1}, 0, 4));
-//        System.out.println(maxSubArrayBruteForce(new int[]{-2, 1}));
     }
 
     //1. Brute Force Solution - my implementation

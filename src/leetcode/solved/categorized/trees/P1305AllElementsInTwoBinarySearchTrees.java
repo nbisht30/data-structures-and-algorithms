@@ -32,21 +32,15 @@ class P1305AllElementsInTwoBinarySearchTrees {
     
     public List<Integer> getInorder(TreeNode node, List<Integer> list){
         if(node == null) return list;
-        
         if(node.left != null) list = getInorder(node.left, list);
-        
         list.add(node.val);
-        
         if(node.right != null) list = getInorder(node.right, list);
-
         return list;
     }
     
     public List<Integer> merge(List<Integer> l1, List<Integer> l2){
         List<Integer> res = new ArrayList<>(l1.size() + l2.size());
-        
         int i = 0, j = 0;
-        
         while(i < l1.size() && j < l2.size()){
             if(l2.get(j) < l1.get(i)) {
                 res.add(l2.get(j));
@@ -67,7 +61,7 @@ class P1305AllElementsInTwoBinarySearchTrees {
             res.add(l2.get(j));
             j++;
         }
-        
+
         return res;
     }
 }

@@ -1,6 +1,7 @@
 package leetcode.solved.categorized.math.arithmetics;
 
-class Solution {
+class P7ReverseInteger {
+    // Intuition: See leetcode solution explanation.
     public int reverse(int x) {
         int rev = 0;
         int lstDig = 0;
