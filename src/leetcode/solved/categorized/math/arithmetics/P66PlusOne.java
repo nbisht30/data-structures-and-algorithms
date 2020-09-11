@@ -3,28 +3,19 @@ package leetcode.solved.categorized.math.arithmetics;
 class P66PlusOne {
     // MYSELF
     public int[] plusOne(int[] digits) {
-        if(digits.length == 1) {
-            if(digits[0] == 9) return new int[]{1,0};
-            else {
-                digits[0]++;
-                return digits;
-            }
-        }
-        int carry = 0, n;
+        int carry = 0;
         int lastInd = digits.length - 1;
         digits[lastInd]++;
-        for(int i = lastInd; i >= 0; i--){
+        for (int i = lastInd; i >= 0; i--) {
             digits[i] += carry;
-            if(digits[i] / 10 == 1) {
+            if (digits[i] == 10) {
                 carry = 1;
-                digits[i] %= 10;
-            }
-            else return digits;
+                digits[i] = 0;
+            } else break;
         }
-        if(digits[0] == 0){
+        if (digits[0] == 0 || digits[0] == 10) {
             int res[] = new int[digits.length + 1];
             res[0] = 1;
-            for(int i = 0; i < digits.length; i++) res[i + 1] = digits[i];
             return res;
         }
         return digits;
