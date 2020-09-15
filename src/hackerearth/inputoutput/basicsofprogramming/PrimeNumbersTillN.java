@@ -71,7 +71,7 @@ public class PrimeNumbersTillN {
 		}
 		/*
 		 * Trial division does futile work by dividing primes, the sieve does futile
-		 * work by repeatedly crossing off composites. There are relatively few primes,
+		 * work by repeatedly crossing off composite numbers. There are relatively few primes,
 		 * but many composites, so one might be tempted to think trial division wastes
 		 * less work. But: Composites have only few distinct prime factors, while there
 		 * are many primes below sqrt(p).
