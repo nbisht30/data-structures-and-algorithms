@@ -4,8 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 class P17LetterCombinationsOfAPhoneNumber {
-    
-    
+
     public List<String> letterCombinations(String digits) {
         
         String[] keys = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
