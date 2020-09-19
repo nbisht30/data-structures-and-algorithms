@@ -47,7 +47,9 @@ public class P1TwoSum {
         return new int[0];
     }
 
-    public static int[] twoSum3(int[] nums, int target) {  //This is same but the code is more optimized, as we dont need a list to store two indices when
+    // My code when I solved the problem second time on 09/18/2020 08:43
+    public static int[] twoSum3(int[] nums, int target) {
+        //This is same but the code is more optimized, as we dont need a list to store two indices when
         // target has two equal number of whom its a sum eg. target = 8 and there are two elements 4 and 4 in the array. We will find the second elements index as one would already be in the map.
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
