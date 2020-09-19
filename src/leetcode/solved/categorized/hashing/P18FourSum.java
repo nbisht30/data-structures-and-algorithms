@@ -111,5 +111,4 @@ public class P18FourSum {
         }
         return finalList;
     }
-
 }
