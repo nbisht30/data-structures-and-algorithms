@@ -53,6 +53,17 @@ class P131PalindromePartitioning {
 
         for (int i = start; i < s.length(); i++) {
             if (s.charAt(start) == s.charAt(i) && (i - start <= 2 || palindrome[start + 1][i - 1])) {
+                /*
+                i - start <= 2 ->>>> As we know of strings of length 1, 2 and 3 would be palindrome if first and last characters are same, so we're marking palindrome[start][i] = true
+                if first and last character is same. And also it helps to avoid checking the other condition i.e. palindrome[start + 1][i - 1]
+
+                Dry run:-
+                When start is 0 then i would go from 0 to s.length() - 1 and (i - start <= 2) would always be true and we would mark the [0,0], [1,1], [2,2]... i.e
+                all diagonal elements as true.
+                When start becomes 1 then i would go from 1 to s.length() - 1 and (i - start <= 2) would be true when i is 1, 2, 3 but false when i is 4.
+                When start becomes 2 then i would go from 2 to s.length() - 1 and (i - start <= 2) would be true when i is 2, 3, 4 but false when i is 5.
+                When start becomes 3 then i would go from 3 to s.length() - 1 and (i - start <= 2) would be true when i is 3, 4, 5 but false when i is 6(if length of string allows i going to 6)
+                 */
                 palindrome[start][i] = true;
                 temp.add(s.substring(start, i + 1));
                 findAllDP(s, i + 1, result, temp, palindrome);
