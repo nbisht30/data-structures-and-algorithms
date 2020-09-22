@@ -55,15 +55,15 @@ class P131PalindromePartitioning {
             if (s.charAt(start) == s.charAt(i) && (i - start <= 2 || palindrome[start + 1][i - 1])) {
                 palindrome[start][i] = true;
                 temp.add(s.substring(start, i + 1));
-                findAll(s, i + 1, result, temp, palindrome);
+                findAllDP(s, i + 1, result, temp, palindrome);
                 temp.remove(temp.size() - 1); // Backtracking!!
             }
         }
     }
 
     /*
-    // My old backtracking impl. insteading of just using one string creating separte strings in left and right
-    // was getting very time consuming, above implementation is faster.
+    // My old backtracking impl. instead of just using one string creating separate strings in left and right
+    // was getting very time-consuming, above implementation is faster.
     void findAll(String s, int start, List<List<String>> result, List<String> temp){
 
         if(s.length() == 0) {
