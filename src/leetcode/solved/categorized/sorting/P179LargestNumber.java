@@ -9,7 +9,7 @@ class P179LargestNumber {
         System.out.println(largestNumber(new int[]{10,2}));
     }
     public static String largestNumber(int[] nums) {
-        List<String> numsString = new ArrayList<String>();
+        List<String> numsString = new ArrayList<>();
         for (int i : nums)
             numsString.add(Integer.toString(i));
         Collections.sort(numsString, (a, b) -> (b + a).compareTo(a + b));
