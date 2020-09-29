@@ -9,19 +9,6 @@ class P1305AllElementsInTwoBinarySearchTrees {
         int val;
         TreeNode left;
         TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {

@@ -8,7 +8,7 @@ class P105ConstructBinaryTreeFromPreorderAndInorderTraversal {
         TreeNode node = buildTree(new int[]{4, 1, 2, 3}, new int[]{1, 2, 3, 4});
     }
 
-    /* My Solution
+    /*
     Intuition: First element of preorder is the root of the tree and if we search for that root in inorder, then left side
     of that root in inroder is the left subtree and right side is right subtree.
 
@@ -48,17 +48,8 @@ class P105ConstructBinaryTreeFromPreorderAndInorderTraversal {
         TreeNode left;
         TreeNode right;
 
-        TreeNode() {
-        }
-
         TreeNode(int val) {
             this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
         }
     }
 }
