@@ -51,7 +51,7 @@ class P1008ConstructBinarySearchTreeFromPreorderTraversal {
     }
 
     /*
-    O(n) Solution
+    O(n) algo
     Intuition:-
     https://www.youtube.com/watch?v=RyAGEb4VWo0
 

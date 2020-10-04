@@ -4,6 +4,8 @@ class P300LongestIncreasingSubsequence {
     /*
     Subsequence - Need not be contiguous.
     Below approach is N^2 approach
+
+    @TODO: Do the NLOGN approach
     */
     public int lengthOfLIS(int[] nums) {
         int dp[][] = new int[nums.length][nums.length];
