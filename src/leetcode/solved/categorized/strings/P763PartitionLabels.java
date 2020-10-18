@@ -3,7 +3,7 @@ package leetcode.solved.categorized.strings;
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class P763PartitionLabels {
     public static void main(String[] args) {
         System.out.println(partitionLabels("ababcbacadefegdehijhklij"));
     }
