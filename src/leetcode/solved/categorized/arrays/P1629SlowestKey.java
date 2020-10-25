@@ -1,6 +1,6 @@
 package leetcode.solved.categorized.arrays;
 
-class P1629SlowesKey {
+class P1629SlowestKey {
     public char slowestKey(int[] releaseTimes, String keysPressed) {
         if(releaseTimes.length == 1) return keysPressed.charAt(0);
         int max = releaseTimes[0];

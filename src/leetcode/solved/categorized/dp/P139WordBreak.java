@@ -5,30 +5,38 @@ import java.util.List;
 import java.util.Map;
 
 class P139WordBreak {
-     Map<String, Boolean> dpMap = new HashMap<>();
+    Map<String, Boolean> dpMap = new HashMap<>();
+
     public boolean wordBreakDpRecursiveBottomUp(String s, List<String> wordDict) {
-        if(wordDict.contains(s)) return true;
-        if(dpMap.containsKey(s)) return dpMap.get(s);
+        if (wordDict.contains(s)) return true;
+        if (dpMap.containsKey(s)) return dpMap.get(s);
         int currInd = 0;
-        while(currInd < s.length()){
+        while (currInd < s.length()) {
             String left = s.substring(0, currInd + 1);
             String right = s.substring(currInd + 1);
-            if(wordDict.contains(left) && wordBreakDpRecursiveBottomUp(right, wordDict)){
+            if (wordDict.contains(left) && wordBreakDpRecursiveBottomUp(right, wordDict)) {
                 dpMap.put(left, true);
                 return true;
-            }else currInd++;
+            } else currInd++;
         }
         dpMap.put(s, false);
         return false;
     }
 
     public boolean wordBreakIterativeBottomUpOptimized(String s, List<String> wordDict) {
-        boolean[] dp = new boolean[s.length() + 1]; // This is a replacement of dpMap in the wordBreakDpRecursiveBottomUp implementation
-        dp[0] = true; // substring(0,0) i.e. an empty string can be broken into words from dict
-        for(int i = 1; i <= s.length(); i++){ // iterate n number of times (basically replacing the recursive calls)
-            for(int j = 0; j < i; j++){
-                if(dp[j] && wordDict.contains(s.substring(j, i))){
-                    dp[i] = true;
+        // Explanation: https://www.youtube.com/watch?v=hLQYQ4zj0qg&ab_channel=GeeksforGeeks
+        boolean[] dp = new boolean[s.length() + 1]; // This is a replacement of dpMap in the wordBreakDpRecursiveBottomUp im
+        dp[0] = true; // substring(0,0) i.e. an empty string
+        for (int len = 1; len <= s.length(); len++) { // iterate n number of times (basically replacing the recursive calls)
+            for (int i = 0; i < len; i++) {
+                if (dp[i] && wordDict.contains(s.substring(i, len))) {
+                    /*
+                    Explanation:-
+                    If for any value of i we have dp[i] as true i.e. substring(0, i) can be broken into words from dict
+                    then if remaining substring that starts from i and goes till len - 1 is also present in wordDict
+                    then basically dp[len] can be set to true.
+                     */
+                    dp[len] = true;
                     break;
                 }
             }
