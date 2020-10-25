@@ -43,4 +43,29 @@ class P139WordBreak {
         }
         return dp[s.length()];
     }
+
+    public boolean wordBreakIterativeTopDownOptimized(String s, List<String> wordDict) {
+        // Explanation: https://www.youtube.com/watch?v=hLQYQ4zj0qg&ab_channel=GeeksforGeeks
+        boolean[] dp = new boolean[s.length() + 1]; // This is a replacement of dpMap in the wordBreakDpRecursiveBottomUp im
+        dp[0] = true; // substring(0,0) i.e. an empty string
+        for (int len = 1; len <= s.length(); len++) { // iterate n number of times (basically replacing the recursive calls)
+            for (int i = len - 1; i >= 0; i--) {
+                /*
+                In Top Down approach you basically start from the end and check the same condition,
+                this can help in optimizing the performance as you might have a larger string already present in the wordDict
+                 */
+                if (dp[i] && wordDict.contains(s.substring(i, len))) {
+                    /*
+                    Explanation:-
+                    If for any value of i we have dp[i] as true i.e. substring(0, i) can be broken into words from dict
+                    then if remaining substring that starts from i and goes till len - 1 is also present in wordDict
+                    then basically dp[len] can be set to true.
+                     */
+                    dp[len] = true;
+                    break;
+                }
+            }
+        }
+        return dp[s.length()];
+    }
 }
