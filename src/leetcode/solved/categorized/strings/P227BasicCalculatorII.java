@@ -97,7 +97,6 @@ class P227BasicCalculatorII {
         public int calculate(String s) {
 
             char lastOpr = '+';
-            Stack<Integer> nums = new Stack<>();
             int currNum = 0, lastNum = 0, result = 0;
 
             for(int i = 0; i < s.length(); i++){
