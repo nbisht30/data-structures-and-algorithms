@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.arrays.slidingwindow;
+package leetcode.solved.categorized.slidingwindow;
 
 class P1566DetectPatternOfLengthMRepeatedKOrMoreTimes {
 
