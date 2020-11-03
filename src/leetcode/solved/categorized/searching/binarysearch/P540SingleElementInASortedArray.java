@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.binarysearch;
+package leetcode.solved.categorized.searching.binarysearch;
 
 // https://leetcode.com/problems/single-element-in-a-sorted-array/
 class P540SingleElementInASortedArray {

@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.binarysearch;
+package leetcode.solved.categorized.searching.binarysearch;
 
 class P162FindPeakElement {
     // MYSELF

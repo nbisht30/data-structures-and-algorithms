@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.binarysearch;
+package leetcode.solved.categorized.searching.binarysearch;
 // https://leetcode.com/problems/valid-perfect-square/
 class P367ValidPerfectSquare {
     public boolean isPerfectSquare(int num) {
