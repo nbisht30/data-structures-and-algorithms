@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.math.randomnumbers;
+package leetcode.solved.categorized.randomnumbers;
 
 import java.util.Random;
 
@@ -29,3 +29,4 @@ class SolBase {
         return random.nextInt(7) + 1;
     }
 }
+

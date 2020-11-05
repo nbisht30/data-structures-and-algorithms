@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.math.randomnumbers;
+package leetcode.solved.categorized.randomnumbers;
 
 import java.util.HashSet;
 import java.util.Random;
