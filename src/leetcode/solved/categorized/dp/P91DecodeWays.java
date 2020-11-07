@@ -83,7 +83,7 @@ class P91DecodeWays {
 
     int helperBottomUp(String s) {
         int[] dp = new int[s.length() + 1];
-        dp[0] = 1;
+        dp[0] = 1; // just to make sure that when you calculate dp[2] you get a 1 while accessing i - 2.
         dp[1] = s.charAt(0) == '0' ? 0 : 1;
 
         for (int i = 2; i < dp.length; i++) {
