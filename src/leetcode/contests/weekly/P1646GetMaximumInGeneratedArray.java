@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.contest;
+package leetcode.contests.weekly;
 
 class P1646GetMaximumInGeneratedArray {
     public int getMaximumGenerated(int n) {

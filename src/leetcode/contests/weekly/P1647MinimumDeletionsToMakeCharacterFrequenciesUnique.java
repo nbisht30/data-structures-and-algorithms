@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.contest;
+package leetcode.contests.weekly;
 
 import java.util.HashMap;
 import java.util.HashSet;
