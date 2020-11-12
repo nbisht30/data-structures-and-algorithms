@@ -14,34 +14,35 @@ class P212WordSearchII {
         trie.addWordsToTrie(words);
         TrieNode root = trie.getRoot();
 
-        Set<String> result = new HashSet<>();
-        boolean[][] visited = new boolean[board.length][board[0].length];
+        List<String> result = new ArrayList<>();
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                dfsWithTrie(board, visited, root, i, j, result);
+                dfsWithTrie(board, root, i, j, result);
             }
         }
-        return new ArrayList<>(result);
+        return result;
     }
 
-    void dfsWithTrie(char[][] board, boolean[][] visited,
-                     TrieNode node, int i, int j, Set<String> result) {
+    void dfsWithTrie(char[][] board,
+                     TrieNode node, int i, int j, List<String> result) {
 
         if (i < 0 || j < 0 || i >= board.length || j >= board[0].length
-                || visited[i][j] || node.children[board[i][j] - 'a'] == null)
+                || board[i][j] == '#'|| node.children[board[i][j] - 'a'] == null)
             return;
 
         node = node.children[board[i][j] - 'a'];
-        if (node.isWord) {
-            result.add(node.currentWord);
+        if (node.word != null) {
+            result.add(node.word);
+            node.word = null;
         }
 
-        visited[i][j] = true;
-        dfsWithTrie(board, visited, node, i + 1, j, result);
-        dfsWithTrie(board, visited, node, i - 1, j, result);
-        dfsWithTrie(board, visited, node, i, j + 1, result);
-        dfsWithTrie(board, visited, node, i, j - 1, result);
-        visited[i][j] = false;
+        char ch = board[i][j];
+        board[i][j] = '#';
+        dfsWithTrie(board, node, i + 1, j, result);
+        dfsWithTrie(board, node, i - 1, j, result);
+        dfsWithTrie(board, node, i, j + 1, result);
+        dfsWithTrie(board, node, i, j - 1, result);
+        board[i][j] = ch;
 
     }
 
@@ -55,17 +56,14 @@ class P212WordSearchII {
         void addWordsToTrie(String[] words) {
             for (String word : words) {
                 TrieNode current = root;
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < word.length(); i++) {
-                    char ch = word.charAt(i);
-                    if (current.children[ch - 'a'] == null) {
-                        current.children[ch - 'a'] = new TrieNode();
+                for (char ch : word.toCharArray()) {
+                    int index = ch - 'a';
+                    if (current.children[index] == null) {
+                        current.children[index] = new TrieNode();
                     }
-                    sb.append(ch);
-                    current = current.children[ch - 'a'];
-                    current.currentWord = sb.toString();
+                    current = current.children[index];
                 }
-                current.isWord = true;
+                current.word = word;
             }
         }
 
@@ -75,8 +73,7 @@ class P212WordSearchII {
     }
 
     class TrieNode {
-        boolean isWord;
-        String currentWord;
+        String word;
         TrieNode[] children = new TrieNode[26];
     }
 }
