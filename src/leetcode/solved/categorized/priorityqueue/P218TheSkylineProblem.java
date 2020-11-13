@@ -19,7 +19,7 @@ class P218TheSkylineProblem {
 
     public List<List<Integer>> getSkyline(int[][] buildings) {
         BuildingPoint[] points = getSortedBuildingPointArray(buildings);
-        return getSkylineUsingSortedBuildingPoints(points);
+        return getSkylineUsingSortedBuildingPointsUsingPQ(points);
     }
 
     BuildingPoint[] getSortedBuildingPointArray(int[][] buildings) {
@@ -60,7 +60,8 @@ class P218TheSkylineProblem {
         return points;
     }
 
-    List<List<Integer>> getSkylineUsingSortedBuildingPoints(BuildingPoint[] points) {
+    // Using PQ(Slower, as remove() method is O(N))
+    List<List<Integer>> getSkylineUsingSortedBuildingPointsUsingPQ(BuildingPoint[] points) {
         int prevMaxHt = 0;
         List<List<Integer>> result = new ArrayList<>();
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()); // Max heap
@@ -86,6 +87,39 @@ class P218TheSkylineProblem {
                     result.add(resPt);
                     prevMaxHt = newMaxHt;
                 }
+            }
+        }
+        return result;
+    }
+
+    // Using TreeMap(BST) as a queue, removal is O(N)
+    List<List<Integer>> getSkylineUsingSortedBuildingPointsUsingTreeMap(BuildingPoint[] points) {
+        List<List<Integer>> result = new ArrayList<>();
+        TreeMap<Integer, Integer> queue = new TreeMap<>(); // key - height, value - count of height
+        queue.put(0, 1);
+        int prevMaxHeight = 0;
+        for(BuildingPoint buildingPoint : points) {
+            if (buildingPoint.isStart) {
+                queue.compute(buildingPoint.y, (key, value) -> {
+                    if (value != null) {
+                        return value + 1;
+                    }
+                    return 1;
+                });
+            } else {
+                queue.compute(buildingPoint.y, (key, value) -> {
+                    if (value == 1) {
+                        return null;
+                    }
+                    return value - 1;
+                });
+            }
+            int currentMaxHeight = queue.lastKey();
+            if (prevMaxHeight != currentMaxHeight) {
+                List<Integer> temp = new ArrayList<>();
+                Collections.addAll(temp, buildingPoint.x, currentMaxHeight);
+                result.add(temp);
+                prevMaxHeight = currentMaxHeight;
             }
         }
         return result;
