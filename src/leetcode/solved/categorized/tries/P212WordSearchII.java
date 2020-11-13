@@ -1,9 +1,7 @@
 package leetcode.solved.categorized.tries;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 class P212WordSearchII {
 
@@ -27,7 +25,7 @@ class P212WordSearchII {
                      TrieNode node, int i, int j, List<String> result) {
 
         if (i < 0 || j < 0 || i >= board.length || j >= board[0].length
-                || board[i][j] == '#'|| node.children[board[i][j] - 'a'] == null)
+                || board[i][j] == '#' || node.children[board[i][j] - 'a'] == null)
             return;
 
         node = node.children[board[i][j] - 'a'];

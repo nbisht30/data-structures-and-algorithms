@@ -9,7 +9,7 @@ class P435NonOverlappingIntervals {
 
         // Sort array by increasing order of end, and if values at end are equal for two intervals,
         // interval with larger start comes first. Sorting using a custom comparator
-        // Note: If Comparator for any two values a and b returns -ve value the a has more priority than b,
+        // Note: If Comparator for any two values a and b returns -ve value then a has more priority than b,
         // or a comes first in result after sorting. 0 means equal priority and +ve means a comes after b.
         Arrays.sort(intervals, (a, b) -> a[1] == b[1] ? b[0] - a[0] : a[1] - b[1]);
         
