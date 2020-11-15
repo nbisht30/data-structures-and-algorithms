@@ -7,14 +7,14 @@ import java.util.Map;
 class P139WordBreak {
     Map<String, Boolean> dpMap = new HashMap<>();
 
-    public boolean wordBreakDpRecursiveBottomUp(String s, List<String> wordDict) {
+    public boolean wordBreakDpRecursiveTopDown(String s, List<String> wordDict) {
         if (wordDict.contains(s)) return true;
         if (dpMap.containsKey(s)) return dpMap.get(s);
         int currInd = 0;
         while (currInd < s.length()) {
             String left = s.substring(0, currInd + 1);
             String right = s.substring(currInd + 1);
-            if (wordDict.contains(left) && wordBreakDpRecursiveBottomUp(right, wordDict)) {
+            if (wordDict.contains(left) && wordBreakDpRecursiveTopDown(right, wordDict)) {
                 dpMap.put(left, true);
                 return true;
             } else currInd++;
