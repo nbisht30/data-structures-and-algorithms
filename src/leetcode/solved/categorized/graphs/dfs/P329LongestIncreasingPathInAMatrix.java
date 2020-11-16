@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.graphs;
+package leetcode.solved.categorized.graphs.dfs;
 
 import java.util.Arrays;
 

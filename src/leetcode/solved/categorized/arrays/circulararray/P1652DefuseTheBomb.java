@@ -4,7 +4,7 @@ class P1652DefuseTheBomb {
     public int[] decrypt(int[] code, int k) {
         int[] sum = new int[code.length];
 
-        if (k < 0) {t
+        if (k < 0) {
             for (int i = sum.length - 1; i >= 0; i--) {
                 System.out.println("i: " + i);
                 for (int j = 1; j <= Math.abs(k); j++) {

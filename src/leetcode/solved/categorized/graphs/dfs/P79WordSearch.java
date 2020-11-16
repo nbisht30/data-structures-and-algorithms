@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.searching.dfs;
+package leetcode.solved.categorized.graphs.dfs;
 
 class P79WordSearch {
     public boolean exist(char[][] board, String word) {
