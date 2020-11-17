@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class P542_01Matrix {
+    // @TODO: Learn the much faster DP solution for this problem
+
+    // BFS solution:-
     // Whenever using BFS on matrix, use this(directions)
     private int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
@@ -38,7 +41,7 @@ class P542_01Matrix {
                     int r = pt.i + dir[0];
                     int c = pt.j + dir[1];
 
-                    // Checking if they dont exceed the boundries
+                    // Checking if they don't exceed the boundaries
                     if (r >= 0 && c >= 0 && r < rows && c < cols) {
                         if (matrix[r][c] == -1) { // if adjacent element was -1, update its length.
                             matrix[r][c] = len;
