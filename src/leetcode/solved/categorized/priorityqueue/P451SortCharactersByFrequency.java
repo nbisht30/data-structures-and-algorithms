@@ -7,36 +7,36 @@ class P451SortCharactersByFrequency {
         System.out.println(frequencySort("eeeeaaadrr"));
     }
 
+    /*
+    Resolved:
+    18-Nov-20
+     */
     public static String frequencySort(String s) {
-        Map<Character, Integer> count = new HashMap<>();
+        if(s.length() == 0) return s;
 
-        for (int i = 0; i < s.length(); i++) {
-            count.put(s.charAt(i), count.getOrDefault(s.charAt(i), 0) + 1);
+        Map<Character, Integer> map = new HashMap<>();
+
+        for(char ch : s.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
-        PriorityQueue<Character> heap =
-                new PriorityQueue<>(Comparator.comparingInt(count::get).reversed());  // Comparator.comparingInt() gives a comparator
-        // to compare int using the function passed and reversed() method provide the reversed order of this comparator.
+        PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
 
-        for (char ch : count.keySet()) {
-            heap.add(ch);
+        for(Map.Entry<Character, Integer> entry : map.entrySet()){
+            pq.add(entry);
         }
 
-/*        //NOTE: PRINTING A QUEUE DOES NOT GIVE THE RESULTS IN THE ACTUAL ORDER BASED ON PRIORITY
-        Iterator<Character> itr2 = heap.iterator();
-        while (itr2.hasNext())
-            System.out.println(itr2.next());*/
-
-        StringBuilder finalSB = new StringBuilder();
-
-        while(!heap.isEmpty()){
-            char head = heap.poll();
-            int charCount = count.get(head);
-            for (int i = 0; i < charCount; i++) {
-                finalSB.append(head);
+        StringBuilder sb = new StringBuilder();
+        while(!pq.isEmpty()){
+            Map.Entry<Character, Integer> entry = pq.poll();
+            int cnt = entry.getValue();
+            char ch = entry.getKey();
+            while(cnt > 0) {
+                sb.append(ch);
+                cnt--;
             }
         }
 
-        return finalSB.toString();
+        return sb.toString();
     }
 }

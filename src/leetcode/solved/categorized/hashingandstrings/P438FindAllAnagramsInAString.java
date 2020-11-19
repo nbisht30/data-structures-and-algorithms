@@ -5,6 +5,10 @@ import java.util.List;
 
 //https://leetcode.com/problems/find-all-anagrams-in-a-string/
 class P438FindAllAnagramsInAString {
+    /*
+    RESOLVED:-
+    18-Nov-20
+     */
     public List<Integer> findAnagrams(String s, String p) {
             int[] charCount = new int[26];
         
@@ -41,5 +45,37 @@ class P438FindAllAnagramsInAString {
                 }
             }
         return retList;  
+    }
+
+    /*
+    I could come up with this when I coded it for the second time.
+     */
+    public List<Integer> findAnagramsEasierImplementation(String s, String p) {
+        int[] countP = new int[28];
+
+        for(char ch: p.toCharArray()) countP[ch - 'a']++;
+
+        List<Integer> res = new ArrayList<>();
+
+        for(int end = 0, st = 0; end < s.length(); end++){
+            if(end < p.length()) {
+                countP[s.charAt(end) - 'a']--;
+                if(isAllZero(countP)) res.add(st);
+            } else{
+                countP[s.charAt(st) - 'a']++;
+                st++;
+                countP[s.charAt(end) - 'a']--;
+                if(isAllZero(countP)) res.add(st);
+            }
+        }
+
+        return res;
+    }
+
+    boolean isAllZero(int[] cnt){
+        for(int i : cnt) {
+            if(i != 0) return false;
+        }
+        return true;
     }
 }

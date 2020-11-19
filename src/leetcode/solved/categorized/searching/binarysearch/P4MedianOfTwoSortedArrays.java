@@ -47,8 +47,45 @@ class P4MedianOfTwoSortedArrays {
     And, the element just before the dividing point at num2 i.e. y5
     should be <= the element just after the dividing point at num1 i.e x3
     So, y5 <= x3
-
-
      */
     // https://www.youtube.com/watch?v=LPFhl65R7ww&ab_channel=TusharRoy-CodingMadeSimple
+
+    public double findMedianSortedArraysBinarySearch(int[] nums1, int[] nums2) {
+        if(nums1.length > nums2.length) {
+            return findMedianSortedArraysBinarySearch(nums2, nums1);
+        }
+
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+
+        int lo = 0, hi = len1;
+
+        while(lo <= hi){
+            int partitionNum1 = (lo + hi) / 2;
+            int partitionNum2 = (len1 + len2 + 1) / 2 - partitionNum1;
+
+            int maxLeftOfNum1 = (partitionNum1 == 0) ? Integer.MIN_VALUE : nums1[partitionNum1 - 1];
+
+            int maxLeftOfNum2 = (partitionNum2 == 0) ? Integer.MIN_VALUE : nums2[partitionNum2 - 1];
+
+            int minRightOfNum1 = (partitionNum1 == len1) ? Integer.MAX_VALUE : nums1[partitionNum1];
+
+            int minRightOfNum2 = (partitionNum2 == len2) ? Integer.MAX_VALUE : nums2[partitionNum2];
+
+            if(maxLeftOfNum1 <= minRightOfNum2 && maxLeftOfNum2 <= minRightOfNum1){
+                if((len1 + len2) % 2 == 0){
+                    return (double)(Math.max(maxLeftOfNum1, maxLeftOfNum2) +
+                            Math.min(minRightOfNum1, minRightOfNum2)) / 2.0;
+                } else {
+                    return (double)Math.max(maxLeftOfNum1, maxLeftOfNum2);
+                }
+            } else if(maxLeftOfNum1 > minRightOfNum2){
+                hi = partitionNum1 - 1;
+            } else {
+                lo = partitionNum1 + 1;
+            }
+        }
+
+        throw new IllegalArgumentException();
+    }
 }

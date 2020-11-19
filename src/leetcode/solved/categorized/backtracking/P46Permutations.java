@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 class P46Permutations {
+    /*
+    RESOLVED:
+    18-Nov-20
+     */
 
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> perms = new ArrayList<>();

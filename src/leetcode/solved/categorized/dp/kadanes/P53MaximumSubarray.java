@@ -18,6 +18,11 @@ If you have figured out the O(n) solution, try coding another solution using the
 */
 
 public class P53MaximumSubarray {
+    /*
+    Resolved:
+    18-Nov-20
+     */
+
     public static void main(String[] args) {
         System.out.println(maxSubArray(new int[]{1, -3, 2, 1, -1}, 0, 4));
     }
@@ -51,15 +56,19 @@ public class P53MaximumSubarray {
         /*
         //Iterative DP implementation -> O(n)
         //Intuition - Same as above just that we're creating the memoize array iteratively.
-        int[] maxTillIndexArray = new int[n.length];
-        maxTillIndexArray[0] = n[0];
-        int max = maxTillIndexArray[0];
-        for (int i = 1; i < n.length; i++) {
-            maxTillIndexArray[i] = (maxTillIndexArray[i - 1] + n[i]) > n[i] ? (maxTillIndexArray[i - 1] + n[i]) : n[i];
-            if (maxTillIndexArray[i] > max) {
-                max = maxTillIndexArray[i];
+
+        public int maxSubArray(int[] nums) {
+            if(nums.length == 0 ) return 0;
+            int max = nums[0];
+            int[] maxTillIndex = new int[nums.length];
+            maxTillIndex[0] = nums[0];
+            for(int i = 1; i < nums.length; i++){
+                maxTillIndex[i] = Math.max(maxTillIndex[i - 1] + nums[i], nums[i]);
+                max = Math.max(maxTillIndex[i], max);
             }
-        }*/
+            return max;
+        }
+    */
 
 
         //Kadane's Algorithm - O(n) time O(1) space.
