@@ -12,6 +12,6 @@ class P1446ConsecutiveCharacters {
             }
         }
 
-        return Math.max(curr, max);
+        return Math.max(curr, max);l
     }
 }
