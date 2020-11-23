@@ -14,7 +14,7 @@ class P128LongestConsecutiveSequence {
         Arrays.sort(nums);
         int maxLen = 1, currLen = 1;
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != nums[i - 1]) { // Only if the elements are unequal, we need to check if our sequence has extended or broken
+            if (nums[i] != nums[i - 1]) { // Only if the elements are unequal, we need to check if our sequence has extended or brokenre
                 if (nums[i] == nums[i - 1] + 1) currLen++;
                 else {
                     maxLen = Math.max(currLen, maxLen);
