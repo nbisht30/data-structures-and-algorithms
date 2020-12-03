@@ -5,7 +5,7 @@ import java.util.Queue;
 
 class P1302DeepestLeavesSum {
     // Myself
-    // Date: 21-Nov
+    // Date: 21-Nov-20
     // Time ~ 3 mins 13 sec for AC
     public int deepestLeavesSum(TreeNode root) {
         int sum = 0;
