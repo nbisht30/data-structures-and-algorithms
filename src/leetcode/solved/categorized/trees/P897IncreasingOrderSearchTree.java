@@ -17,7 +17,7 @@ class P897IncreasingOrderSearchTree {
     void inorder(TreeNode node) {
         if (node == null) return;
         inorder(node.left);
-        if (newRoot == null && node.left == null) {
+        if (newRoot == null) {
             newRoot = new TreeNode(node.val);
             last = newRoot;
         } else if (last != null) {
