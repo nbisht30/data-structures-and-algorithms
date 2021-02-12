@@ -7,16 +7,12 @@ package leetcode.solved.categorized.linkedlist;
 public class P876MiddleInALinkedList {
 
     public ListNode middleNode(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-
-        while (fast.next != null && fast.next.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
+        ListNode node1 = head, node2 = head;
+        while(node2 != null && node2.next != null){
+            node1 = node1.next;
+            node2 = node2.next.next;
         }
-        if (fast.next == null)
-            return slow;
-        return slow.next;
+        return node1;
     }
 
     private class ListNode {
