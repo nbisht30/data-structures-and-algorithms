@@ -27,4 +27,32 @@ class P824GoatLatin {
         if(res.length() > 0) res.setLength(res.length() - 1);
         return res.toString();
     }
+
+
+    class SecondAttempt {
+        public String toGoatLatin(String S) {
+            if(S == null || S.length() == 0) return "";
+            String[] splits = S.split(" ");
+            StringBuilder result = new StringBuilder();
+            String suffix = "a";
+            for(String str : splits){
+                String rep = getReplacement(str);
+                result.append(rep + suffix + " ");
+                suffix += "a";
+            }
+            result.setLength(result.length() - 1);
+            return result.toString();
+        }
+
+        String getReplacement(String s){
+            if(isVowel(s.charAt(0))) return s + "ma";
+            else return s.substring(1) + s.charAt(0) + "ma";
+        }
+
+        boolean isVowel(char ch){
+            HashSet<Character> vowel = new HashSet<>();
+            Collections.addAll(vowel, 'a','e','i','o','u', 'A', 'E', 'I', 'O', 'U');
+            return vowel.contains(ch);
+        }
+    }
 }
