@@ -1,25 +1,24 @@
 package leetcode.solved.categorized.hashingandstrings;
 
 class P705DesignHashSet {
-    
-    int[] values = new int[1000001];
 
+    boolean[] set;
     /** Initialize your data structure here. */
     public P705DesignHashSet() {
-        
+        set = new boolean[1000001];
     }
-    
+
     public void add(int key) {
-        values[key] = 1;
+        set[key] = true;
     }
-    
+
     public void remove(int key) {
-        values[key] = 0;
+        set[key] = false;
     }
-    
+
     /** Returns true if this set contains the specified element */
     public boolean contains(int key) {
-        return values[key] == 1;
+        return set[key];
     }
 }
 
