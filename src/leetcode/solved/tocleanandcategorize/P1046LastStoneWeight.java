@@ -1,6 +1,7 @@
 package leetcode.solved.tocleanandcategorize;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -15,7 +16,7 @@ public class P1046LastStoneWeight {
     }
 
     public static int lastStoneWeight(int[] stones){
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b.compareTo(a));
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
         for(int st : stones) pq.add(st);
 
         while(pq.size() > 1){

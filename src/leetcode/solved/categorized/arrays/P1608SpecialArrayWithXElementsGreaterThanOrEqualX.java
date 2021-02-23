@@ -2,22 +2,13 @@ package leetcode.solved.categorized.arrays;
 
 class P1608SpecialArrayWithXElementsGreaterThanOrEqualX {
     public int specialArray(int[] nums) {
-        if(nums.length == 0) return 0;
-        
-        int n = nums.length;
-        
-        while(n != 0){
-            int cnt = 0;
-            for(int i = 0; i < nums.length; i++) {
-                if(nums[i] >= n) {
-                    cnt++;
-                }
-                if(cnt > n) return -1;
+        for(int i = nums.length; i >= 0; i--){
+            int numsGreaterThanOrEqualToI = 0;
+            for(int j = 0; j < nums.length; j++){
+                if(nums[j] >= i) numsGreaterThanOrEqualToI++;
             }
-            if(cnt == n) return n;
-            n--;
+            if(numsGreaterThanOrEqualToI == i) return i;
         }
-        
         return -1;
     }
 }
