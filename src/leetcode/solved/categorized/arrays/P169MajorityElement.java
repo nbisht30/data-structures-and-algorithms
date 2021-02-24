@@ -18,4 +18,21 @@ class P169MajorityElement {
         
         return -1;
     }
+
+    public int majorityElementBoyerMoore(int[] nums) {
+        // Boyer-Moore algo
+        int majorityElement = nums[0];
+        int count = 1;
+        for(int i = 1; i < nums.length; i++){
+            if(majorityElement == nums[i]) count++;
+            else {
+                count--;
+                if(count == 0) {
+                    majorityElement = nums[i];
+                    count = 1;
+                }
+            }
+        }
+        return majorityElement;
+    }
 }
