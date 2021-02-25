@@ -10,13 +10,12 @@ public class P122BestTimeToBuyAndSellStockII {
     }
 
     public static int maxProfit(int[] prices) {  //Simple one pass
-        int maxProfit = 0;
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) {
-                maxProfit += prices[i] - prices[i - 1];
-            }
+        int profit = 0, lastPrice = Integer.MAX_VALUE;
+        for(int price : prices){
+            if(price > lastPrice) profit += price - lastPrice;
+            lastPrice = price;
         }
-        return maxProfit;
+        return profit;
     }
 
         public int maxProfitUsingSameApproachAsBTBSS1(int[] prices) { // Same idea as Best Time to Buy and Sell Stock-I
