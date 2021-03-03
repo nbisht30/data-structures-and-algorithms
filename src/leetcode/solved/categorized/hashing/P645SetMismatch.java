@@ -1,6 +1,8 @@
 package leetcode.solved.categorized.hashing;
 
 class P645SetMismatch {
+    // Myself
+    // 5 mins
     public int[] findErrorNums(int[] nums) {
         int[] res = new int[2];
         int j = 0;
