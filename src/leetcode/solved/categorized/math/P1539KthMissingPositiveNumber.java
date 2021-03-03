@@ -14,4 +14,18 @@ class P1539KthMissingPositiveNumber {
         }
         return arr[arr.length - 1] + k - missingCount;
     }
+
+    // Dated : 03-03-2021
+    // Time: 5 mins
+    public int findKthPositiveResolving(int[] arr, int k) {
+
+        if(arr[0] - 1 >= k) return k;
+        k -= arr[0] - 1;
+
+        for(int i = 0 ; i < arr.length - 1; i++){
+            if(arr[i] + k < arr[i + 1]) return arr[i] + k;
+            k -=  arr[i + 1] - (arr[i] + 1);
+        }
+        return arr[arr.length - 1] + k;
+    }
 }
