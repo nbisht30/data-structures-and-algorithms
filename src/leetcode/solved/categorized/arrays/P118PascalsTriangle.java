@@ -5,24 +5,23 @@ import java.util.List;
 
 class P118PascalsTriangle {
     //MYSELF
-    //Time: 10 min
+    // Time: 10 min
+    // Second attempt: 10 mins
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<>();
-        if (numRows == 0) return res;
 
-        res.add(new ArrayList<>());
-        res.get(0).add(1);
-
-        for (int i = 1; i < numRows; i++) {
-            List<Integer> prev = res.get(i - 1);
-            List<Integer> newLst = new ArrayList<>();
-            newLst.add(1);
-            for (int j = 1; j < prev.size(); j++) {
-                newLst.add(prev.get(j - 1) + prev.get(j));
+        int size = 1;
+        for(int i = 0 ; i < numRows; i++){
+            List<Integer> list = new ArrayList<>(size);
+            for(int j = 0; j < size; j++){
+                if(j == 0 || j == size - 1) list.add(1);
+                else list.add(res.get(i - 1).get(j) + res.get(i - 1).get(j - 1));
             }
-            newLst.add(1);
-            res.add(newLst);
+
+            res.add(list);
+            size++;
         }
+
         return res;
     }
 }
