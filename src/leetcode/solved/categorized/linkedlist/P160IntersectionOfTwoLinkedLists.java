@@ -1,6 +1,6 @@
 package leetcode.solved.categorized.linkedlist;
 
-public class Solution {
+public class P160IntersectionOfTwoLinkedLists {
     private class ListNode {
         int val;
         ListNode next;
