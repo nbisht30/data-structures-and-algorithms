@@ -12,48 +12,29 @@ public class P993CousinsInBinaryTree {
     }
 
     class Solution {
+        // Time : 7:43 mins
+        TreeNode xParent, yParent;
+        int xDepth, yDepth;
         public boolean isCousins(TreeNode root, int x, int y) {
-            if (root == null) return false;
-            int[] depthXY = new int[2];
-            getDepth(depthXY, null, root, x, y, 0, false);
-            if (depthXY[0] == 0 && depthXY[1] == 0) return false;
-            if (depthXY[0] == depthXY[1]) return true;
-            return false;
+            helper(root, null, x, y, 0);
+            if(xParent == yParent || xDepth != yDepth) return false;
+            else return true;
         }
 
-        private void getDepth(int[] depth, TreeNode parent, TreeNode node, int x, int y, int d, boolean isLeft) {
-            if (parent != null) {
-                if (node.val == x) {
-                    if (depth[1] == 0) {
-                        if (isLeft) {
-                            if (parent.right != null && parent.right.val == y) {
-                                return;
-                            }
-                        } else {
-                            if (parent.left != null && parent.left.val == y) {
-                                return;
-                            }
-                        }
-                    }
-                    depth[0] = d;
-                }
-                if (node.val == y) {
-                    if (depth[0] == 0) {
-                        if (isLeft) {
-                            if (parent.right != null && parent.right.val == x) {
-                                return;
-                            }
-                        } else {
-                            if (parent.left != null && parent.left.val == x) {
-                                return;
-                            }
-                        }
-                    }
-                    depth[1] = d;
-                }
+        void helper (TreeNode node, TreeNode parent, int x, int y, int depth) {
+            if(node == null) return;
+            if(node.val == x) {
+                xParent = parent;
+                xDepth = depth;
+                return;
             }
-            if (node.left != null) getDepth(depth, node, node.left, x, y, d + 1, true);
-            if (node.right != null) getDepth(depth, node, node.right, x, y, d + 1, false);
+            if(node.val == y) {
+                yParent = parent;
+                yDepth = depth;
+                return;
+            }
+            helper(node.left, node, x, y, depth + 1);
+            helper(node.right, node, x, y, depth + 1);
         }
     }
 }
