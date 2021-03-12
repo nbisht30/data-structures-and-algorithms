@@ -2,25 +2,19 @@ package leetcode.solved.categorized.trees;
 
 
 class P404SumOfLeftLeaves {
+    // Time: 2.5 mins on resolving streak
     int sum = 0;
 
     public int sumOfLeftLeaves(TreeNode root) {
-        if (root == null) return 0;
         helper(root, false);
         return sum;
     }
 
-    public void helper(TreeNode curr, boolean dir) { // true if from left
-
-        if (curr.left == null && curr.right == null) {
-            if (dir) {
-                sum += curr.val;
-            }
-            return;
-        }
-
-        if (curr.left != null) helper(curr.left, true);
-        if (curr.right != null) helper(curr.right, false);
+    void helper(TreeNode node, boolean isLeft){
+        if(node == null) return;
+        if(node.left == null && node.right == null && isLeft) sum += node.val;
+        helper(node.left, true);
+        helper(node.right, false);
     }
 
     private static class TreeNode {
