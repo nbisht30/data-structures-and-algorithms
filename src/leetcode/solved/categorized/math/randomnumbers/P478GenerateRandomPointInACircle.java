@@ -3,7 +3,7 @@ package leetcode.solved.categorized.math.randomnumbers;
 import java.util.Random;
 
 class P478GenerateRandomPointInACircle {
-
+    // Explanation : https://www.youtube.com/watch?v=0AC-TjfomZw&ab_channel=CodingDecoded
     double radius, x_center, y_center;
     Random rand;
 
