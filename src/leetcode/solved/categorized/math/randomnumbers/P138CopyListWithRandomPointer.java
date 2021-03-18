@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.randomnumbers;
+package leetcode.solved.categorized.math.randomnumbers;
 
 // LC: https://leetcode.com/problems/copy-list-with-random-pointer/
 
