@@ -2,15 +2,14 @@ package leetcode.solved.categorized.arrays;
 
 class P121BestTimeToBuyAndSellStock {
     public int maxProfit(int[] prices) {
-        int lastMin = Integer.MAX_VALUE;
-        int maxProfit = 0;
-        for(int i = 0; i < prices.length; i++){
-            if(prices[i] < lastMin){
-                lastMin = prices[i];
+        int prof = 0, min = 0;
+        for(int i = 1; i < prices.length; i++) {
+            if(prices[i] < prices[min]) {
+                min = i;
+            }else {
+                prof = Math.max(prof, prices[i] - prices[min]);
             }
-            else if(prices[i] - lastMin > maxProfit) maxProfit = prices[i] - lastMin;
         }
-        
-        return maxProfit;
+        return prof;
     }
 }
