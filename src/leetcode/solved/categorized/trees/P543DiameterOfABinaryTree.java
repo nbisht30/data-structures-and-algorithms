@@ -44,4 +44,27 @@ public class P543DiameterOfABinaryTree {
         retArr[1] = left[0] + right[0] > maxTillNow ? left[0] + right[0] : maxTillNow;
         return retArr;
     }
+
+    class AnotherSolution {
+        int maxDiameter = 0;
+        public int diameterOfBinaryTree(TreeNode root) {
+            maxDepth(root);
+            return maxDiameter;
+        }
+
+        public int maxDepth(TreeNode curr)  {
+            if(curr == null) return 0;
+
+            // Find depth of left and right subTrees
+            int maxDepthLeft = maxDepth(curr.left);
+            int maxDepthRight = maxDepth(curr.right);
+
+            // New global maxDiameter is either already reached,
+            // or is acheived using this node as the root
+            maxDiameter = Math.max(maxDiameter, maxDepthLeft + maxDepthRight);
+
+            // Return height of tree rooted at this node
+            return Math.max(maxDepthLeft, maxDepthRight) + 1;
+        }
+    }
 }
