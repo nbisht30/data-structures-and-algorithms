@@ -18,24 +18,22 @@ public class P202HappyNumber {
         System.out.println(isHappyFloydsCycleDetection(85));
     }
 
-    public static boolean happyNumberMyAttempt(int n) {
-        Set<Integer> checkedFor = new HashSet<>();
-        while (true) {
-            if (n == 1) {
-                return true;
-            } else if (checkedFor.contains(n)) {
-                return false;
-            }
-            checkedFor.add(n);
-            n = sumOfSquaresOfDigits(n);
+    // Using sets
+    public boolean isHappy(int n) {
+        Set<Integer> cycle = new HashSet<>();
+        while (!cycle.contains(n)) {
+            cycle.add(n);
+            n = squareSumDigits(n);
+            if (n == 1) return true;
         }
+        return false;
     }
 
-    private static int sumOfSquaresOfDigits(int n) {
+    public static int squareSumDigits(int n) {
         int sum = 0;
-        while (n != 0) {
-            sum += ((n % 10) * (n % 10));
-            n = n / 10;
+        while (n > 0) {
+            sum += Math.pow(n % 10, 2);
+            n /= 10;
         }
         return sum;
     }
@@ -45,16 +43,16 @@ public class P202HappyNumber {
             return true;
         if (n < 10)
             return false;
-        return isHappyRecursive(sumOfSquaresOfDigits(n));
+        return isHappyRecursive(squareSumDigits(n));
     }
 
     public static boolean isHappyFloydsCycleDetection(int n) { //The concept of fast and slow pointer.
         int slow, fast;
         slow = fast = n;
         do {
-            slow = sumOfSquaresOfDigits(slow);
-            fast = sumOfSquaresOfDigits(fast);
-            fast = sumOfSquaresOfDigits(fast);
+            slow = squareSumDigits(slow);
+            fast = squareSumDigits(fast);
+            fast = squareSumDigits(fast);
         } while (slow != fast);
         if (slow == 1) return true;
         else return false;
