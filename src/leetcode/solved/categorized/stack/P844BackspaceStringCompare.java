@@ -111,4 +111,32 @@ public class P844BackspaceStringCompare {
         }
         return String.valueOf(stack);
     }
+
+    //My latest attempt, could come up with solution myself.
+    public boolean backspaceCompareSolvedMyself(String s, String t) {
+        int h1 = 0, h2 = 0;
+        int i = s.length() - 1, j = t.length() - 1;
+
+        while(i >= 0 || j >= 0) {
+            while(i >= 0) {
+                if(s.charAt(i) == '#') h1++;
+                else if(h1 > 0) h1--;
+                else break;
+                i--;
+            }
+            while(j >= 0) {
+                if(t.charAt(j) == '#') h2++;
+                else if(h2 > 0) h2--;
+                else break;
+                j--;
+            }
+            if(i < 0 && j < 0) return true;
+            if(i < 0 || j < 0) return false;
+            if(s.charAt(i) != t.charAt(j)) return false;
+            i--;
+            j--;
+        }
+
+        return true;
+    }
 }
