@@ -17,6 +17,8 @@ public class P141LinkedListCycle {
         return false;
     }
 
+
+
     private class ListNode {
         int val;
         ListNode next;
