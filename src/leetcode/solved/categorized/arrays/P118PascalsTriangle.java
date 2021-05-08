@@ -5,7 +5,7 @@ import java.util.List;
 
 class P118PascalsTriangle {
     //MYSELF
-    // Time: 10 min
+    // TIME: 10 min
     // Second attempt: 10 mins
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<>();

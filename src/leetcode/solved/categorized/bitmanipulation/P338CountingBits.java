@@ -1,9 +1,9 @@
 package leetcode.solved.categorized.bitmanipulation;
 
 class P338CountingBits {
-    // Myself
+    // MYSELF
     // Based on concepts in : P191 Number Of Bits
-    // Time: 8 mins
+    // TIME: 8 mins
     public int[] countBits(int num) {
         int[] arr = new int[num + 1];
         

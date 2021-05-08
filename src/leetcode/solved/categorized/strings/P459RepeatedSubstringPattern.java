@@ -1,26 +1,20 @@
 package leetcode.solved.categorized.strings;
 
 class P459RepeatedSubstringPattern {
+    // MYSELF
+    // DATE : Attempted on 08-May-2021
+    // TIME : 5-10 mins.
     public boolean repeatedSubstringPattern(String s) {
-        boolean res = true;
-
-        for (int i = 0; (2 * (i + 1)) <= s.length(); i++) {
-            res = true;
-            for (int j = i + 1; j < s.length(); ) {
-                int k = 0, l = j;
-                while (l < s.length() && k <= i) {
-                    if (s.charAt(k) != s.charAt(l)) {
-                        res = false;
-                        break;
-                    }
-                    l++;
-                    k++;
-                }
-                if (!res) break;
-                if (j + (i + 1) > s.length()) return false;
-                j += (i + 1);
+        int N = s.length();
+        for (int currLen = 1; currLen <= N / 2; currLen++) {
+            if (N % currLen != 0) continue;
+            String substr = s.substring(0, currLen);
+            int i;
+            for (i = currLen; i <= N - currLen; i += currLen) {
+                String compSubStr = s.substring(i, i + currLen);
+                if (!compSubStr.equals(substr)) break;
             }
-            if (res) return true;
+            if (i == s.length()) return true;
         }
         return false;
     }

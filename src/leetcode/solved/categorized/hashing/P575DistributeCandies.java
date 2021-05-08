@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 class P575DistributeCandies {
-    // Myself
+    // MYSELF
     // 2 mins
     public int distributeCandies(int[] candyType) {
         Set<Integer> types = new HashSet<>();

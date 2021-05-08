@@ -6,7 +6,7 @@ import java.util.List;
 
 class P637AverageOfLevelsInBinaryTree {
 
-    // Myself
+    // MYSELF
     // 5 mins
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> averages = new ArrayList<>();

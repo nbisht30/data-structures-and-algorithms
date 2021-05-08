@@ -1,7 +1,7 @@
 package leetcode.solved.categorized.arrays;
 
 class P485MaxConsecutiveOnes {
-    // Time : 6 :44 mins
+    // TIME : 6 :44 mins
     public int findMaxConsecutiveOnes(int[] nums) {
         int streak = 0;
         int max = 0;

@@ -1,9 +1,9 @@
 package leetcode.solved.categorized.arrays;
 
 class P1395CountNumberOfTeams {
-    // Myself
-    // Date: 24-Nov-20
-    // Time: ~ 18 mins for AC(although in first attempt)
+    // MYSELF
+    // DATE: 24-Nov-20
+    // TIME: ~ 18 mins for AC(although in first attempt)
     // Improvements: Took a lot of time(12 - 15 mins) trying to think of an optimized solution, then ended up coding the O(n^3) cubic solution
     // which got accepted. Need to analyze what is the expected time complexity based on the constraints.
 

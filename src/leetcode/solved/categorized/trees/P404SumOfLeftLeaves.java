@@ -2,7 +2,7 @@ package leetcode.solved.categorized.trees;
 
 
 class P404SumOfLeftLeaves {
-    // Time: 2.5 mins on resolving streak
+    // TIME: 2.5 mins on resolving streak
     int sum = 0;
 
     public int sumOfLeftLeaves(TreeNode root) {

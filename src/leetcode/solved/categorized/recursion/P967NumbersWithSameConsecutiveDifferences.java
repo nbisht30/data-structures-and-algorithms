@@ -5,7 +5,7 @@ import java.util.List;
 
 class P967NumbersWithSameConsecutiveDifferences {
     // NEEDED HELP, CODED AFTER GETTING THE IDEA, TODO AGAIN
-    // Time: A lot! (More than 2 hrs in total)
+    // TIME: A lot! (More than 2 hrs in total)
 
     /*
     Approach: Recursion or DFS approach.

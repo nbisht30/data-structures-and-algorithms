@@ -2,7 +2,7 @@ package leetcode.solved.categorized.arrays.peak;
 
 class P852PeakIndexInMountainArray {
     // MYSELF
-    // Time: 5 min
+    // TIME: 5 min
 
     public int peakIndexInMountainArray(int[] A) {
         int peak = Integer.MIN_VALUE;

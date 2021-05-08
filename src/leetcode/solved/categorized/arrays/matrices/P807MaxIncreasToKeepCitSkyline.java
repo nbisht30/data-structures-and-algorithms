@@ -1,9 +1,9 @@
 package leetcode.solved.categorized.arrays.matrices;
 
 class P807MaxIncreasToKeepCitSkyline {
-    // Myself
-    // Date: 21-Nov-20
-    // Time ~ 10 mins
+    // MYSELF
+    // DATE: 21-Nov-20
+    // TIME ~ 10 mins
     public int maxIncreaseKeepingSkyline(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;

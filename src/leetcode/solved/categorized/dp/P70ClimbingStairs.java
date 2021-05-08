@@ -5,9 +5,9 @@ class P70ClimbingStairs {
     //TIME: 9 MIN
     //APPROACH: DYNAMIC PROGRAMMING
 
-    //Time(Second Attempt: 27/Apr/21) : 6 Mins
+    //TIME(Second Attempt: 27/Apr/21) : 6 Mins
     public int climbStairs(int n) {
-        return helper(n);s
+        return helper(n);
     }
 
     public int helper(int n) {

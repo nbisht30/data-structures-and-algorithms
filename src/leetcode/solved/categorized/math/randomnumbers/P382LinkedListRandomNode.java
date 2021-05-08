@@ -4,9 +4,9 @@ import java.util.Random;
 
 class P382LinkedListRandomNode {
 
-    // Myself
-    // Date: 02-Dec-20
-    // Time ~ 3 mins
+    // MYSELF
+    // DATE: 02-Dec-20
+    // TIME ~ 3 mins
     // Drawback: Makes two passes over the linkedlist, @TODO: learn reservoir sampling.
     int size = 0;
     Random r = new Random();

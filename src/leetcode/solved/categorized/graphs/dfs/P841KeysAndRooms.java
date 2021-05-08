@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Stack;
 
 class P841KeysAndRooms {
-    // Myself
+    // MYSELF
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
         int numRooms = rooms.size();
         Stack<Integer> stack = new Stack<>();

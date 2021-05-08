@@ -1,7 +1,7 @@
 package leetcode.contests.weekly;
 
 class P1646GetMaximumInGeneratedArray {
-    // Time: 7:18 mins
+    // TIME: 7:18 mins
     public int getMaximumGenerated(int n) {
         if(n == 0) return 0;
         int[] arr = new int[n + 1];

@@ -1,7 +1,7 @@
 package leetcode.solved.categorized.hashing;
 
 class P645SetMismatch {
-    // Myself
+    // MYSELF
     // 5 mins
     public int[] findErrorNums(int[] nums) {
         int[] res = new int[2];

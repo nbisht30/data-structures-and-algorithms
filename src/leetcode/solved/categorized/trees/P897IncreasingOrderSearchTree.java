@@ -4,9 +4,9 @@ class P897IncreasingOrderSearchTree {
     TreeNode newRoot = null;
     TreeNode last = null;
 
-    // Myself
-    // Date: 03-Dec-20
-    // Time ~ 10 mins
+    // MYSELF
+    // DATE: 03-Dec-20
+    // TIME ~ 10 mins
     // Drawback: O(n) space
     //@TODO: There is a O(h) space implementation also available
     public TreeNode increasingBST(TreeNode root) {

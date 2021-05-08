@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 class P350IntersectionOfTwoArraysII {
-    // Myself
-    // Time: 13 mins
+    // MYSELF
+    // TIME: 13 mins
     // Approach: HASHING
-    // Time(Second Attempt): 19:20 mins(Got stuck with using sets)
+    // TIME(Second Attempt): 19:20 mins(Got stuck with using sets)
 
     public int[] intersect(int[] nums1, int[] nums2) {
         HashMap<Integer, Integer> map= new HashMap<>();

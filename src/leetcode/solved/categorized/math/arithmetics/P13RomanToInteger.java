@@ -5,7 +5,7 @@ import java.util.Map;
 
 class P13RomanToInteger {
     //Earlier I could not solve it in 1 hour. Sat today to solve it again and solved it myself in 10 mins. Idea suddenly popped up.
-    //Time: 10 mins.
+    //TIME: 10 mins.
     public int romanToInt(String s) {
         Map<Character, Integer> map = new HashMap<>();
         map.put('I', 1);

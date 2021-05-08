@@ -44,4 +44,39 @@ public class P160IntersectionOfTwoLinkedLists {
         
         return sizeA == 0 ? null : headA;
     }
+
+    // MYSELF
+    // DATE: 08-May-2021, second attempt
+    // TIME: 5 mins
+    // COMMENTS: Improved over the last attempt, wrote cleaner code
+    public ListNode getIntersectionNodeAttemptTwo(ListNode headA, ListNode headB) {
+        int countA = 0, countB = 0;
+
+        ListNode temp = headA;
+        while(temp!= null) {
+            temp = temp.next;
+            countA++;
+        }
+
+        temp = headB;
+        while(temp!= null) {
+            temp = temp.next;
+            countB++;
+        }
+
+        while(headA != headB){
+            if(countA > countB) {
+                headA = headA.next;
+                countA--;
+            } else if(countB > countA) {
+                headB = headB.next;
+                countB--;
+            } else {
+                headA = headA.next;
+                headB = headB.next;
+            }
+        }
+
+        return headA;
+    }
 }

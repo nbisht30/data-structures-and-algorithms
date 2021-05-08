@@ -12,7 +12,7 @@ public class P993CousinsInBinaryTree {
     }
 
     class Solution {
-        // Time : 7:43 mins
+        // TIME : 7:43 mins
         TreeNode xParent, yParent;
         int xDepth, yDepth;
         public boolean isCousins(TreeNode root, int x, int y) {
