@@ -1,5 +1,7 @@
 package leetcode.solved.categorized.bitmanipulation;
 
+import static java.lang.System.out;
+
 // https://leetcode.com/problems/reverse-bits/
 public class P190ReverseBits {
     // EXPLANATION: https://leetcode.com/problems/reverse-bits/discuss/54738/Sharing-my-2ms-Java-Solution-with-Explanation
@@ -13,6 +15,8 @@ public class P190ReverseBits {
             res = res | lastBit;
             n = n >> 1;
         }
+        out.println();
         return res;
+
     }
 }

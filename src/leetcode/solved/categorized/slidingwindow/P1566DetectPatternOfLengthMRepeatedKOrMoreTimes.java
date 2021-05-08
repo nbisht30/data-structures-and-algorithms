@@ -42,4 +42,24 @@ class P1566DetectPatternOfLengthMRepeatedKOrMoreTimes {
 
         return false;
     }
+
+    // MYSELF
+    // TIME: Did take similar amount of time but approach is much more compact and cleaner.
+    public boolean containsPatternSecondAttempt(int[] arr, int m, int k) {
+
+        for(int begin = 0; begin + 2 * m <= arr.length; begin++) {
+            int end = begin + m - 1;
+            int count = 1; // pattern is already present once
+            for (int i = end + 1, offset = 0; i < arr.length; i++) {
+                if(arr[begin + offset] != arr[i]) break;
+                offset++;
+                if(offset == m) {
+                    count++;
+                    offset = 0;
+                }
+            }
+            if(count >= k) return true;
+        }
+        return false;
+    }
 }
