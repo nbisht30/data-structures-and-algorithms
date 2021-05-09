@@ -16,26 +16,22 @@ class P367ValidPerfectSquare {
         }
         return false;
     }
-    
-     public boolean isPerfectSquareBinarySearch(long num) {
-        if(num < 1) return false;
-        if(num == 1) return true;
-        
-        long lo = 1, hi = num;
-         
-        long mid = (lo + hi)/2;
-         
-        while(lo <= hi){
-            if(mid * mid == num) return true;
-            else if( mid * mid < num ) {
-                //search right
-                lo = mid + 1;
-            }else {
-                hi = mid - 1;
-                //search left
-            }
-             mid = (lo + hi)/2;
-        }
-        return false;
+
+    // MYSELF
+    // TIME: 20 Mins
+    // DATE: 09-May-2021
+    // COMMENTS: Was still getting TLE for max int input, because mid * mid was creating overflow
+    // in (mid * mid == num) condition and was evaluating to true so had to look for an alternative
+    // it can be written as mid == num / mid, but you also need to check that its fully divisible, so
+    // num % mid == 0 is also added.
+    public boolean isPerfectSquareBinarySearch(int num) {
+         int lo = 1, hi = num, mid;
+         while(lo <= hi){
+             mid = lo + (hi - lo) / 2;
+             if(mid == num / mid && num % mid == 0) return true;
+             else if(mid < num / mid) lo = mid + 1;
+             else hi = mid - 1;
+         }
+         return false;
     }
 }

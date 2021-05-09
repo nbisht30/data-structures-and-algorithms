@@ -7,7 +7,7 @@ class P234PalindromeLinkedList {
     // DATE: 09-May-2021, second attempt.
     public boolean isPalindrome(ListNode head) {
         ListNode slow = head, fast = head, revHead = null, prev = null;
-        // reversing half the linked list(revHead beacomes the head after the loop)
+        // reversing half the linked list(revHead becomes the head after the loop)
         // and keeping the other half intact(slow becomes the head after the loop).
         while(fast != null && fast.next != null) {
             revHead = slow;
