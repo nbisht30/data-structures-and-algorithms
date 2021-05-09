@@ -1,33 +1,30 @@
 package leetcode.solved.categorized.linkedlist;
 // https://leetcode.com/problems/palindrome-linked-list/
 class P234PalindromeLinkedList {
+
+    // MYSELF
+    // TIME: 30 Mins
+    // DATE: 09-May-2021, second attempt.
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) return true;
-
-        ListNode slow = head, fast = head;
-        ListNode tmp = null;
-        ListNode prev = null;
-
-        // Find middle as well as reverse the first part of the list till middle.
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-
-            tmp = slow.next;
-            slow.next = prev;
-            prev = slow;
-            slow = tmp;
-        }
-
-        if (fast != null) {
-            slow = slow.next; //Now slow becomes the start of list after middle.
-        }
-        //prev at this stage is the start of the reversed first list.
-        while (slow != null) {
-            if (slow.val != prev.val) {
-                return false;
-            }
+        ListNode slow = head, fast = head, revHead = null, prev = null;
+        // reversing half the linked list(revHead beacomes the head after the loop)
+        // and keeping the other half intact(slow becomes the head after the loop).
+        while(fast != null && fast.next != null) {
+            revHead = slow;
             slow = slow.next;
-            prev = prev.next;
+            fast = fast.next.next;
+            revHead.next = prev;
+            prev = revHead;
+        }
+
+        // if the list has odd number of nodes then fast is not equal to null,
+        // and slow will be at the middle node, and middle can be ignored in palindrome comparison.
+        if(fast != null) slow = slow.next;
+
+        while(revHead != null && slow != null) {
+            if(revHead.val != slow.val) return false;
+            revHead = revHead.next;
+            slow = slow.next;
         }
         return true;
     }
@@ -36,12 +33,10 @@ class P234PalindromeLinkedList {
     // But to save time we can do them both in a single pass
     private ListNode findMiddle(ListNode start) {
         ListNode sp = start, fp = start;
-
         while (fp.next != null && fp.next.next != null) {
             sp = sp.next;
             fp = fp.next.next;
         }
-
         return sp;
     }
 
@@ -49,9 +44,7 @@ class P234PalindromeLinkedList {
         ListNode prev = start;
         start = start.next;
         prev.next = null;
-
         ListNode temp = null;
-
         while (start != null) {
             temp = start;
             start = start.next;
