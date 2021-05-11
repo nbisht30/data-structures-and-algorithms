@@ -34,14 +34,14 @@ class P172FactorialTrailingZeroes {
         But there is still one issue for numbers like 25, 125,
         625, which contain more than one 5 as their factor.
 
-        Eg. for 25! -> number of 0s in 10! + number of 0s which can be generated from 21 to
-        -> number of 0s in 10! + two 0s as there are two 5s present in 25 which would
+        Eg. for 25!, the number of 0s is = number of 0s in 20! + number of 0s which can be generated from 21 to 25
+        = number of 0s in 20! + two 0s as there are two 5s present in 25 which would
         multiple with any two 2s and make a 100 and give us 2 zeros.
-        -> so 25! has six 0s.
+        = so 25! has six 0s.
 
         But, going by the original formula we'll calculate number of 0s in 25! as
         25/5 which is 5. So five 0s.
-        Now, what we need to do now is just divide this result of 5 again by 5
+        Now, what we need to do is just divide this result of 5 again by 5
         which gives us a 1 and add it to previous five 0s
 
         Intuition: Keep dividing by 5 and adding the result to number of 0s.
