@@ -22,10 +22,8 @@ class P14LongestCommonPrefix {
         return count == 0 ? "" : strs[0].substring(0, count);
     }
 
-    // Comparing all strings, almost the same runtime as sorting implementation
+    // Vertical scanning method
     public String longestCommonPrefixCompareAllStrings(String[] strs) {
-        // Vertical scanning method
-        // Vertical scanning
 
         if(strs == null || strs.length == 0) return "";
 
