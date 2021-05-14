@@ -58,14 +58,14 @@ class P204CountPrimes {
 				7 * 6 = 42 = 2 * 3 * 7 = 2 * 21
 				 */
                 for (int j = i * i; j <= n; j += i) {
-                    prime[i] = false;
+                    prime[j] = false;
                 }
             }
         }
 
         // 4. At the end count indices where prime[i] = true and return the count.
         int count = 0;
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i < n; i++) {
             if (prime[i])
                 count++;
         }
