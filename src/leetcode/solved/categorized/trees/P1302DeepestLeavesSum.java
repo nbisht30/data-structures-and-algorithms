@@ -7,6 +7,10 @@ class P1302DeepestLeavesSum {
     // MYSELF
     // DATE: 21-Nov-20
     // TIME ~ 3 mins 13 sec for AC
+
+    // MYSELF
+    // DATE: 15-May-21, second attempt
+    // TIME ~ 5 mins
     public int deepestLeavesSum(TreeNode root) {
         int sum = 0;
         Queue<TreeNode> q = new LinkedList<>();

@@ -17,6 +17,9 @@ class P1379FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree {
         TreeNode right;
     }
 
+    // MYSELF
+    // DATE: 15-May-21, second attempt
+    // TIME ~ 6 mins
     TreeNode dest;
     public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
         helper(original, cloned, target);
