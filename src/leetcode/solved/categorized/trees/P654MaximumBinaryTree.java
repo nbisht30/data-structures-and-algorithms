@@ -2,24 +2,32 @@ package leetcode.solved.categorized.trees;
 
 class P654MaximumBinaryTree {
 
+    // MYSELF
+    // DATE: 15-May-2021, second attempt
+    // TIME: 8 mins
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        TreeNode root = construct(nums, 0, nums.length - 1);
-        return root;
+        TreeNode node = helper(nums, 0, nums.length - 1);
+        return node;
     }
 
-    TreeNode construct(int[] nums, int left, int right) {
-        if (left == right) return new TreeNode(nums[left]);
-        if (left > right) return null;
+    TreeNode helper(int[] nums, int st, int end) {
+        if(st > end) return null;
 
-        int maxIndex = left;
-        for (int i = left + 1; i <= right; i++) {
-            if (nums[maxIndex] < nums[i]) maxIndex = i;
+        int maxInd = getMaxIndex(nums, st, end);
+        TreeNode node = new TreeNode(nums[maxInd]);
+        node.left = helper(nums, st, maxInd - 1);
+        node.right = helper(nums, maxInd + 1, end);
+
+        return node;
+    }
+
+    int getMaxIndex(int[] nums, int st, int end) {
+        int max = st;
+        while(st <= end) {
+            if(nums[st] > nums[max]) max = st;
+            st++;
         }
-
-        TreeNode newNode = new TreeNode(nums[maxIndex]);
-        newNode.left = construct(nums, left, maxIndex - 1);
-        newNode.right = construct(nums, maxIndex + 1, right);
-        return newNode;
+        return max;
     }
 
     public class TreeNode {
