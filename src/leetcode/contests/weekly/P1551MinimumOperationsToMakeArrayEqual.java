@@ -1,27 +1,23 @@
 package leetcode.contests.weekly;
 
 class P1551MinimumOperationsToMakeArrayEqual {
+    // MYSLEF
+    // DATE: 17-05-21, second attempt
+    // TIME: 8 mins
+    // COMMENTS: Cleaned the existing approach
+    // TODO: Bitwise operator approach
     public int minOperations(int n) {
-        if (n % 2 == 1) {
-            int mid = n / 2;
-            int valMid = (mid * 2) + 1;
-            int i = 0;
-            int opn = 0;
-            while (i < mid) {
-                opn += (valMid - ((2 * i) + 1));
-                i++;
-            }
-            return opn;
-        } else {
-            int mid = (n / 2) - 1;
-            int valMid = ((mid * 2) + 1) + 1;
-            int opn = 1;
-            int i = 0;
-            while (i < mid) {
-                opn += (valMid - ((2 * i) + 1));
-                i++;
-            }
-            return opn;
+        int mid = n / 2;
+        int opns = 0;
+        int num = 2 * mid + 1;
+        if (n % 2 == 0) {
+            num -= 1;
+            mid--;
+            opns++;
         }
+        for (int i = 0; i < mid; i++) {
+            opns += num - (2 * i + 1);
+        }
+        return opns;
     }
 }
