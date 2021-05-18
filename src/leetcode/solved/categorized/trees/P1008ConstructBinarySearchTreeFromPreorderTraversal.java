@@ -74,17 +74,13 @@ class P1008ConstructBinarySearchTreeFromPreorderTraversal {
     // https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/discuss/252232/JavaC%2B%2BPython-O(N)-Solution
 
      */
-    private TreeNode helper(int[] preorder, int i[], int limit) {
-        if (i[0] == preorder.length || preorder[i[0]] > limit) return null;
-        int rootval = preorder[i[0]];
+    int index = 0;
+    TreeNode helper(int[] preorder, int limit){
+        if(index == preorder.length || limit < preorder[index]) return null;
 
-        TreeNode root = new TreeNode();
-        root.val = rootval;
-
-        i[0]++;
-
-        root.left = helper(preorder, i, rootval);
-        root.right = helper(preorder, i, limit);
-        return root;
+        TreeNode node = new TreeNode(preorder[index++]);
+        node.left = helper(preorder, node.val);
+        node.right = helper(preorder, limit);
+        return node;
     }
 }
