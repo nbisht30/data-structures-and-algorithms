@@ -11,44 +11,41 @@ class P1305AllElementsInTwoBinarySearchTrees {
         TreeNode right;
     }
 
+    // MYSELF
+    // DATE: 20-May-2021, second attempt
+    // TIME: 10 mins
+    // COMMENT: Cleaner code than last approach.
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
-        List<Integer> list1 = getInorder(root1, new ArrayList<>());
-        List<Integer> list2 = getInorder(root2, new ArrayList<>());
-        return merge(list1, list2);
-    }
-    
-    public List<Integer> getInorder(TreeNode node, List<Integer> list){
-        if(node == null) return list;
-        if(node.left != null) list = getInorder(node.left, list);
-        list.add(node.val);
-        if(node.right != null) list = getInorder(node.right, list);
-        return list;
-    }
-    
-    public List<Integer> merge(List<Integer> l1, List<Integer> l2){
-        List<Integer> res = new ArrayList<>(l1.size() + l2.size());
-        int i = 0, j = 0;
-        while(i < l1.size() && j < l2.size()){
-            if(l2.get(j) < l1.get(i)) {
-                res.add(l2.get(j));
-                j++;
-            }
-            else {
-                res.add(l1.get(i));
-                i++;
-            }
-        }
-        
-        while(i < l1.size()){
-            res.add(l1.get(i));
-            i++;
-        }
-        
-        while(j < l2.size()){
-            res.add(l2.get(j));
-            j++;
-        }
+        List<Integer> first = new ArrayList<>();
+        List<Integer> second = new ArrayList<>();
+        inorder(root1, first);
+        inorder(root2, second);
 
+        return merge(first, second);
+    }
+
+    void inorder(TreeNode node, List<Integer> res) {
+        if(node == null) return;
+
+        inorder(node.left, res);
+        res.add(node.val);
+        inorder(node.right, res);
+    }
+
+    List<Integer> merge(List<Integer> l1, List<Integer> l2) {
+        List<Integer> res = new ArrayList<>(l2.size() + l1.size());
+
+        int i = 0, j = 0;
+        while(i < l1.size() || j < l2.size()) {
+            if(i < l1.size() && j < l2.size()) {
+                if(l1.get(i) < l2.get(j)) res.add(l1.get(i++));
+                else res.add(l2.get(j++));
+            } else if(i < l1.size() && i < l1.size()) {
+                res.add(l1.get(i++));
+            } else if(j < l2.size() && j < l2.size()) {
+                res.add(l2.get(j++));
+            }
+        }
         return res;
     }
 }
