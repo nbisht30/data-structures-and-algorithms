@@ -58,4 +58,57 @@ public class P890FindAndReplacePattern {
         }
         return number;
     }
+
+
+    // MYSELF
+    // DATE: 22-May-21, second attempt, after more than a year.
+    // TIME: 20 mins
+    // COMMENTS: Much faster and cleaner implementation than last time, coded in half the time
+    /*
+    ALGO: Use two maps, one for word to pattern and other for pattern to word character mapping.
+    In word map, put current character of word with corresponding character in the pattern
+    Now if same character occurs again in the word then same corresponding character should be present in the pattern.
+    Eg. if word is "dede" and pattern is "abab" then
+    at i = 1 word map:-
+    d - a
+    e - b
+    at i = 2, since word.charAt(i) is 'd', expect that 'a' should be present in pattern
+    since 'd' is mapped to 'a' in word map
+
+    Pattern map is needed for such cases,
+    Eg. if word is "badc" and pattern is "baba", then
+    at i = 0, word map:-
+    b - b
+    at i = 1, word map:-
+    b - b
+    a - a
+    at i = 2, since there is no entry for 'd' in word map you'll just map it to b and move on
+    even though the word does not match our patten, hence you also need to store a reverse mapping that tells
+    you that 'b' of pattern should be only mapped to 'b' in word, where as here we have a 'd'.
+    */
+
+    public List<String> findAndReplacePatternSecondAttempt(String[] words, String pattern) {
+        List<String> res = new ArrayList<>();
+
+        for(String word : words) {
+            int[] wrd = new int[127];
+            int[] pat = new int[127];
+
+            int i;
+            for(i = 0; i < word.length(); i++){
+                int kw = word.charAt(i);
+                int kp = pattern.charAt(i);
+
+                if(wrd[kw] == 0) wrd[kw] = kp;
+                else if(wrd[kw] != kp) break;
+
+                if(pat[kp] == 0) pat[kp] = kw;
+                else if(pat[kp] != kw) break;
+            }
+
+            if(i == word.length()) res.add(word);
+        }
+
+        return res;
+    }
 }
