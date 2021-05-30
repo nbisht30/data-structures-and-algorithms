@@ -2,6 +2,7 @@ package leetcode.solved.categorized.arrays.intervals;
 
 import java.util.ArrayList;
 import java.util.List;
+
 // https://leetcode.com/problems/interval-list-intersections/
 class P986IntervalListIntersections {
     public static void main(String[] args) {
@@ -48,11 +49,6 @@ class P986IntervalListIntersections {
         for (int k = 0; k < finInd; k++) {
             retArr[k] = finArr[k];
         }
-/*
-        for (int k = 0; k < finInd; k++) {
-            System.out.println(retArr[k][0] + " , " + retArr[k][1]);
-        }
-*/
         return retArr;
     }
 
@@ -79,5 +75,31 @@ class P986IntervalListIntersections {
                 j++;
         }
         return ans.toArray(new int[ans.size()][]);
+    }
+
+    // MYSELF
+    // DATE: 30-05-21, second attempt
+    // TIME: 24 mins
+    public int[][] intervalIntersectionSecondAttempt(int[][] firstList, int[][] secondList) {
+        if (firstList.length == 0 || secondList.length == 0) return new int[][]{};
+
+        List<int[]> list = new ArrayList<>();
+
+        int i = 0, j = 0;
+        while (i < firstList.length && j < secondList.length) {
+            int[] first = firstList[i];
+            int[] second = secondList[j];
+            if (first[1] < second[0]) i++;
+            else if (second[1] < first[0]) j++;
+            else {
+                int st = Math.max(first[0], second[0]);
+                int end = Math.min(first[1], second[1]);
+                list.add(new int[]{st, end});
+                if (end == first[1]) i++;
+                else if (end == second[1]) j++;
+            }
+        }
+
+        return list.toArray(new int[list.size()][2]);
     }
 }
