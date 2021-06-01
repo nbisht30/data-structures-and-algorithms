@@ -29,4 +29,22 @@ class P1557MinimumNumberOfVerticesToReachAllNodes {
         
         return res;
     }
+
+
+    // MYSELF
+    // DATE: 21-05-2021, second attempt
+    // TIME: 6 mins
+
+    public List<Integer> findSmallestSetOfVerticesSecondAttempt(int n, List<List<Integer>> edges) {
+        int[] indegree = new int[n];
+        for(List<Integer> edge : edges) {
+            indegree[edge.get(1)]++;
+        }
+
+        List<Integer> res = new ArrayList<>();
+        for(int i = 0; i < n; i++) {
+            if(indegree[i] == 0) res.add(i);
+        }
+        return res;
+    }
 }

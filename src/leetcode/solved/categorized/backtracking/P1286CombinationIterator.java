@@ -3,7 +3,11 @@ package leetcode.solved.categorized.backtracking;
 import java.util.LinkedList;
 
 class P1286CombinationIterator {
-    
+
+    // NEEDED HELP
+    // APPROACH: BACKTRACKING
+    // EXPLANATION: https://www.youtube.com/watch?v=UOy4IAjvajY
+    // DATE: 28-05-2021
     LinkedList<String> queue;
 
     public P1286CombinationIterator(String characters, int combinationLength) {
