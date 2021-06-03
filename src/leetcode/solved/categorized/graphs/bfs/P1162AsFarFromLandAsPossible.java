@@ -7,12 +7,13 @@ class P1162AsFarFromLandAsPossible {
     // MYSELF
     // DATE: 03-06-2021, first attempt
     // TIME: Spent 53 mins on first trying to solve using DFS, then checked the hint and solved it by
-    // BFS in under 10 mins.
-    class SolutionUsingBFSOnly{
+    // BFS in under 10 mins(but unoptimized).
+    // APPROACH: Start from each water cell and find nearest land cell.
+    class SolutionUsingBFSOnly {
         public int maxDistance(int[][] grid) {
             int n = grid.length, maxDist = -1;
-            for (int i = 0; i < grid.length; i++) {
-                for (int j = 0; j < grid.length; j++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
                     if (grid[i][j] == 0) {
                         int closestOne = getClosestOneByBFS(grid, i, j);
                         maxDist = Math.max(closestOne, maxDist);
@@ -58,5 +59,51 @@ class P1162AsFarFromLandAsPossible {
             }
             return -1;
         }
+    }
+
+    // APPROACH: Put all land cells in the queue, start exploring from all land cells till all water cells
+    // are visited.
+    // EXPLANATION: https://leetcode.com/problems/as-far-from-land-as-possible/discuss/360963/C%2B%2B-with-picture-DFS-and-BFS
+    class OptimizedSolutionUsingBFS {
+        public int maxDistance(int[][] grid) {
+            int n = grid.length;
+            LinkedList<int[]> q = new LinkedList<>();
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (grid[i][j] == 1) {
+                        q.add(new int[]{i - 1, j});
+                        q.add(new int[]{i + 1, j});
+                        q.add(new int[]{i, j - 1});
+                        q.add(new int[]{i, j + 1});
+                    }
+                }
+            }
+            q.add(new int[]{});
+
+            int len = 1; // starting from 1 because we need to mark points visited in the first level, if we start from 0 we'll just mark them non-visited.
+            while (!q.isEmpty()) {
+                int[] point = q.removeFirst();
+                if (point.length == 0) {
+                    if (!q.isEmpty()) {
+                        q.add(new int[]{});
+                        len++;
+                    }
+                } else {
+                    int i = point[0], j = point[1];
+                    // otherwise add non visisted and valid neighbours to queue
+                    if (i >= 0 && j >= 0 && i < n && j < n && grid[i][j] == 0) {
+                        grid[i][j] = len;
+                        q.add(new int[]{i - 1, j});
+                        q.add(new int[]{i + 1, j});
+                        q.add(new int[]{i, j - 1});
+                        q.add(new int[]{i, j + 1});
+                    }
+                }
+            }
+            // if length is 1 we there was only either land or water in the entire grid
+            // else you return len - 1 because len was started from 1
+            return len == 1 ? -1 : len - 1;
+        }
+
     }
 }
