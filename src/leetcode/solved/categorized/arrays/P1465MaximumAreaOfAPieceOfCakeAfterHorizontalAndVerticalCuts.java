@@ -3,6 +3,9 @@ package leetcode.solved.categorized.arrays;
 import java.util.Arrays;
 
 class P1465MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts {
+    // MYSELF
+    // DATE: 04-06-2021, first attempt
+    // TIME: 20 mins
     public int maxArea(int h, int w, int[] horizontalCuts, int[] verticalCuts) {
         Arrays.sort(horizontalCuts);
         Arrays.sort(verticalCuts);
