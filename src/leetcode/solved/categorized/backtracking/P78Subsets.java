@@ -20,4 +20,27 @@ class P78Subsets {
         temp.remove(temp.size() - 1);
         helper(res, nums, i + 1, temp);
     }
+
+    // MYSELF
+    // DATE: 05-06-21, second attempt
+    // TIME: 9:11 mins
+    class SecondAttempt {
+        List<List<Integer>> subsetList = new ArrayList<>();
+        public List<List<Integer>> subsets(int[] nums) {
+            findSubsets(nums, new ArrayList<>(), 0);
+            return subsetList;
+        }
+
+        void findSubsets(int[] nums, List<Integer> subset, int st) {
+            if(st >= nums.length) {
+                subsetList.add(new ArrayList<>(subset));
+                return;
+            }
+
+            findSubsets(nums, subset, st + 1);
+            subset.add(nums[st]);
+            findSubsets(nums, subset, st + 1);
+            subset.remove(subset.size() - 1);
+        }
+    }
 }
