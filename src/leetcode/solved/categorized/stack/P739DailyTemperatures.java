@@ -18,4 +18,32 @@ class P739DailyTemperatures {
         }
         return days;
     }
+
+
+    // MYSELF
+    // DATE: 05-06-2021, second attempt
+    // TIME: 28 mins
+    class SecondAttempt {
+        public int[] dailyTemperatures(int[] temperatures) {
+            int n = temperatures.length;
+            Stack<Integer> indexStack = new Stack<>();
+            int[] res = new int[n];
+
+            for(int i = n - 1; i - 1 >= 0; i--) {
+                if(temperatures[i - 1] < temperatures[i]) {
+                    indexStack.push(i);
+                    res[i - 1] = 1;
+                } else if(!indexStack.isEmpty()) {
+                    while(!indexStack.isEmpty() && temperatures[indexStack.peek()] <= temperatures[i - 1]) {
+                        indexStack.pop();
+                    }
+                    if(!indexStack.isEmpty()) {
+                        res[i - 1] = indexStack.peek() - i + 1;
+                    }
+                }
+            }
+
+            return res;
+        }
+    }
 }
