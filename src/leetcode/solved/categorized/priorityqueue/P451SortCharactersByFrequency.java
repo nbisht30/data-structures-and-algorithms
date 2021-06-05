@@ -39,4 +39,33 @@ class P451SortCharactersByFrequency {
 
         return sb.toString();
     }
+
+    // MYSELF
+    // DATE: 05-06-21, second attempt
+    // TIME: 6 mins
+    class SecondAttempt {
+        public String frequencySort(String s) {
+            char[] arr = s.toCharArray();
+
+            Map<Character, Integer> map = new HashMap<>();
+            for(char ch : arr) map.put(ch, map.getOrDefault(ch, 0) + 1);
+
+            PriorityQueue<Map.Entry<Character, Integer>> pq =
+                    new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+
+            for(Map.Entry entry : map.entrySet()) pq.add(entry);
+
+            StringBuilder sb = new StringBuilder();
+            while(!pq.isEmpty()) {
+                Map.Entry<Character, Integer> entry = pq.poll();
+                Character ch = entry.getKey();
+                Integer freq = entry.getValue();
+                while(freq > 0) {
+                    freq--;
+                    sb.append(ch);
+                }
+            }
+            return sb.toString();
+        }
+    }
 }

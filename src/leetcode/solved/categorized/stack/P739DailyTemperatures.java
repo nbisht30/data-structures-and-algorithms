@@ -23,6 +23,7 @@ class P739DailyTemperatures {
     // MYSELF
     // DATE: 05-06-2021, second attempt
     // TIME: 28 mins
+    // COMMENT: Could solve myself even though I took more time, still struggling in some stack problems. Last time took a lot more time and went with incorrect approach first initially which was n^2
     class SecondAttempt {
         public int[] dailyTemperatures(int[] temperatures) {
             int n = temperatures.length;
