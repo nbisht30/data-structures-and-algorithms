@@ -12,6 +12,10 @@ class P1721SwappingNodesInALinkedList {
 
     // MYSELF
     // TIME < 10 mins
+
+    // MYSELF
+    // DATE: 05-06-21, second attempt
+    // TIME: 6:40 mins
     public ListNode swapNodes(ListNode head, int k) {
         ListNode itr = head;
         while (k > 1) {

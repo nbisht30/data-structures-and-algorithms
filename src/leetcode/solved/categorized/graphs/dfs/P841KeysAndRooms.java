@@ -1,5 +1,6 @@
 package leetcode.solved.categorized.graphs.dfs;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -28,5 +29,33 @@ class P841KeysAndRooms {
         for (boolean status : seen) if (!status) return false;
         return true;
     }
+
+
+    // MYSELF
+    // DATE: 05-06-21, second attempt
+    // TIME: 10:50 mins
+    // APPROACH: This time implemented it with a queue.
+    public boolean canVisitAllRoomsSecondAttempt(List<List<Integer>> rooms) {
+
+        boolean[] vis = new boolean[rooms.size()];
+        vis[0] = true;
+
+        LinkedList<List<Integer>> queue = new LinkedList<>();
+        queue.add(rooms.get(0));
+
+        while (!queue.isEmpty()) {
+            List<Integer> room = queue.removeFirst();
+            for (int r : room) {
+                if (vis[r]) continue;
+                vis[r] = true;
+                queue.add(rooms.get(r));
+            }
+        }
+
+        for (boolean status : vis) if (!status) return false;
+        return true;
+    }
+
+
 }
 

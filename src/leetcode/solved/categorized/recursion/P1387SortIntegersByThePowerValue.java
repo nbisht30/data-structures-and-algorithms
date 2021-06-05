@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.graphs;
+package leetcode.solved.categorized.recursion;
 
 import java.util.Arrays;
 import java.util.Comparator;
