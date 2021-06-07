@@ -24,6 +24,7 @@ class P1663SmallestStringWithAGivenNumericValue {
     // MYSELF
     // DATE: 05-06-2021, second attempt
     // TIME: 40 mins
+    // COMMENT: Was unable to solve last time, had to look at the solution.
     class SecondAttempt {
         public String getSmallestString(int n, int k) {
             StringBuilder sb = new StringBuilder();

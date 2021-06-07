@@ -24,6 +24,34 @@ class P230KthSmallestElementInABST {
         }
     }
 
+
+    // MYSELF
+    // DATE: 06-06-21, second attempt
+    // TIME: 12:20 mins
+    class SecondAttempt {
+        int k;
+        int kthSmall = 0;
+        public int kthSmallest(TreeNode root, int k) {
+            this.k = k;
+            findKth(root);
+            return kthSmall;
+        }
+
+        void findKth(TreeNode node) {
+            if(node == null) return;
+
+            findKth(node.left);
+
+            k--;
+            if(k == 0) {
+                kthSmall = node.val;
+                return;
+            }
+
+            findKth(node.right);
+        }
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;
