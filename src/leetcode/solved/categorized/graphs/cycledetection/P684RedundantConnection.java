@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.graphs.dfs;
+package leetcode.solved.categorized.graphs.cycledetection;
 
 class P684RedundantConnection {
     // MYSELF
