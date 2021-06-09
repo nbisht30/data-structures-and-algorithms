@@ -4,7 +4,7 @@ class P547NumberOfProvinces {
     // MYSELF
     // DATE: 09-06-21, first attempt
     // TIME: 20 mins
-    // APPROACH: Kosaraju's strongly connected components
+    // APPROACH: Simply count connected components using Kosaraju's strongly connected components
     public int findCircleNum(int[][] isConnected) {
         int cnt = 0;
         boolean[] vis = new boolean[isConnected.length];
