@@ -1,8 +1,6 @@
 package leetcode.solved.categorized.hashing;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class P128LongestConsecutiveSequence {
 
@@ -52,4 +50,53 @@ class P128LongestConsecutiveSequence {
         return len;
     }
 
+    // Using Graphs : Kosaraju's SCC algorithm
+    // EXPLANATION: https://leetcode.com/problems/longest-consecutive-sequence/discuss/560800/find-largest-strongly-connected-component-in-undirected-graph
+    // Represent the input array as an undirected graph,
+    // connect an edge b/w any two numbers which have a difference of 1 then find the size of largest connected component
+    class Solution {
+        int length = 0;
+        public int longestConsecutive(int[] nums) {
+            int maxConnCompLen = 0;
+            Map<Integer, LinkedList<Integer>> graph = getAdjList(nums);
+            Set<Integer> visited = new HashSet<>();
+            for(int vertex : graph.keySet()) {
+                if(!visited.contains(vertex)) {
+                    length = 0;
+                    calConnCompLenDFS(graph, visited, vertex);
+                    maxConnCompLen = Math.max(maxConnCompLen, length);
+                }
+            }
+            return maxConnCompLen;
+        }
+
+        Map<Integer, LinkedList<Integer>> getAdjList(int[] nums) {
+            Map<Integer, LinkedList<Integer>> graph = new HashMap<>();
+            for(int i = 0; i < nums.length; i++) {
+                int vertex = nums[i];
+                graph.putIfAbsent(vertex, new LinkedList<>());
+            }
+
+            for(int i = 0; i < nums.length; i++) {
+                int vertex = nums[i];
+                if(graph.containsKey(vertex - 1)) {
+                    graph.get(vertex).add(vertex - 1);
+                }
+                if(graph.containsKey(vertex + 1)) {
+                    graph.get(vertex).add(vertex + 1);
+                }
+            }
+
+            return graph;
+        }
+
+        void calConnCompLenDFS(Map<Integer, LinkedList<Integer>> graph, Set<Integer> visited, int vertex) {
+            visited.add(vertex);
+            length++;
+            LinkedList<Integer> neighbors = graph.get(vertex);
+            for(int neighbor : neighbors) {
+                if(!visited.contains(neighbor)) calConnCompLenDFS(graph, visited, neighbor);
+            }
+        }
+    }
 }
