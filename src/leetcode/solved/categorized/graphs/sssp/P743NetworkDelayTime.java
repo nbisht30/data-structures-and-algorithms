@@ -18,17 +18,15 @@ class P743NetworkDelayTime {
         boolean[] visited = new boolean[n + 1];
         PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.comparingInt(p -> p.cost));
         int[] dist = getDistUsingDijkstrasAlgorithm(n, k, adjList, visited, pq);
-        Integer maxTime = getMaxTime(dist);
-        if (maxTime == null) return -1;
-        return maxTime;
+        return getMaxTime(dist);
     }
 
-    private Integer getMaxTime(int[] dist) {
+    private int getMaxTime(int[] dist) {
         int maxTime = 0;
         for (int i = 1; i < dist.length; i++) {
             if (dist[i] == Integer.MAX_VALUE) {
                 // if even one node was not visited, since we have to visit all node
-                return null;
+                return -1;
             } else {
                 maxTime = Math.max(dist[i], maxTime);
             }
@@ -45,19 +43,17 @@ class P743NetworkDelayTime {
         while (!pq.isEmpty()) {
             Pair pair = pq.poll();
             visited[pair.vertex] = true;
-            if (dist[pair.vertex] < pair.cost) continue; // can we change to <=
+            if (dist[pair.vertex] < pair.cost) continue;
             LinkedList<Pair> edges = adjList[pair.vertex];
-            if(edges == null) continue;
+            if (edges == null) continue;
             Iterator<Pair> itr = edges.iterator();
-            if (Objects.nonNull(itr)) {
-                while (itr.hasNext()) {
-                    Pair edge = itr.next();
-                    if (visited[edge.vertex]) continue;
-                    int newDist = dist[pair.vertex] + edge.cost;
-                    if (newDist < dist[edge.vertex]) {
-                        dist[edge.vertex] = newDist;
-                        pq.offer(new Pair(edge.vertex, newDist));
-                    }
+            while (itr.hasNext()) {
+                Pair edge = itr.next();
+                if (visited[edge.vertex]) continue;
+                int newDist = dist[pair.vertex] + edge.cost;
+                if (newDist < dist[edge.vertex]) {
+                    dist[edge.vertex] = newDist;
+                    pq.offer(new Pair(edge.vertex, newDist));
                 }
             }
         }
