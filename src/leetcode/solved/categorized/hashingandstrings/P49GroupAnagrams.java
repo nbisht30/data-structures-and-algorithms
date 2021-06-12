@@ -15,7 +15,8 @@ P49GroupAnagrams {
     }
 
 
-    public static List<List<String>> groupAnagrams(String[] strs) {  //Using sorting: Sort each word of strs then you dont need to map different anagrams to a single key, this would be faster when
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        //Using sorting: Sort each word of strs then you dont need to map different anagrams to a single key, this would be faster when
         // words in strs are of small size but when words are of large size, this would slow down.
         Map<String, List<String>> codeWithAnagrams = new HashMap<>();
         for (int i = 0; i < strs.length; i++) {
@@ -79,10 +80,3 @@ P49GroupAnagrams {
         return true;
     }
 }
-/*
-Code: 321 Word: duh
-109 97 121
-
-Code: 321 Word: ill
-98 117 121
-*/
