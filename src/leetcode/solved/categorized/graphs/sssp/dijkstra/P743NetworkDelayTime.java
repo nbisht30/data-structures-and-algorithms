@@ -1,4 +1,4 @@
-package leetcode.solved.categorized.graphs.sssp;
+package leetcode.solved.categorized.graphs.sssp.dijkstra;
 
 import java.util.*;
 
