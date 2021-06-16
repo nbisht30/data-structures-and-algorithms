@@ -5,6 +5,7 @@ class P1813SentenceSimilarityIII {
     // DATE: 16-06-21, first attempt
     // TIME: 30 mins
     // CONTEST: Biweekly Contest 49 Virtual
+    // @TODO: Cleanup
     public boolean areSentencesSimilar(String sentence1, String sentence2) {
         String[] s1 = sentence1.split(" ");
         String[] s2 = sentence2.split(" ");
