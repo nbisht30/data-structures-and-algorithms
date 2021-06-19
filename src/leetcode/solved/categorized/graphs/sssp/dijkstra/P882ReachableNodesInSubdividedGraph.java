@@ -1,57 +1,55 @@
 package leetcode.solved.categorized.graphs.sssp.dijkstra;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 class P882ReachableNodesInSubdividedGraph {
     public static void main(String[] args) {
         P882ReachableNodesInSubdividedGraph s = new P882ReachableNodesInSubdividedGraph();
-        int[][] edges = {{0, 1, 10}, {0, 2, 1}, {1, 2, 2}};
-        int maxMoves = 6;
-        int n = 3;
+        int[][] edges = {{3,4,8},{0,1,3},{1,4,0},{1,2,3},{0,3,2},{0,4,10},{1,3,3},{2,4,3},{2,3,3},{0,2,10}};
+        int maxMoves = 7;
+        int n = 5;
         int reachableNodes = s.reachableNodes(edges, maxMoves, n);
         System.out.println(reachableNodes);
     }
 
+    // @TODO: Resolve and understand fully
     public int reachableNodes(int[][] edges, int maxMoves, int n) {
+        int[][] graph = getAdjMatrix(edges, n);
+        int count = 0;
+        boolean[] visited = new boolean[n];
+        PriorityQueue<Node> maxHeap = new PriorityQueue<>((a, b) -> b.moves - a.moves); // need a max heap
+        maxHeap.add(new Node(0, maxMoves));
 
-        int[][] adjMatrix = getAdjMatrix(edges, n);
-        int reachableCount = 0;
+        while (!maxHeap.isEmpty()) {
+            Node fromNode = maxHeap.poll();
+            int from = fromNode.index;
+            if(visited[from]) continue;
+            visited[from] = true;
+            count++;
 
-        PriorityQueue<Node> pq = new PriorityQueue<>
-                (Comparator.comparingInt(a -> a.distFromSrc));
-        pq.add(new Node(0, 0));
-
-        while (!pq.isEmpty()) {
-            Node node = pq.poll();
-
-            int[] neighbors = adjMatrix[node.index];
+            int[] neighbors = graph[fromNode.index];
             for (int i = 0; i < neighbors.length; i++) {
-                int cost = neighbors[i], to = i, from = node.index;
+                int edgeCost = neighbors[i], to = i, movesLeft = fromNode.moves;
+                if (edgeCost < 0) continue;
 
-                if (cost <= 0) continue;
-                int nextDist = cost + 1;
-                int totalDist = node.distFromSrc + nextDist;
-                // +1 for counting edge.to node also
-                if (totalDist >= maxMoves) {
-                    nextDist = maxMoves - node.distFromSrc;
-                    cost -= nextDist;
-                } else {
-                    cost = 0;
-                    pq.offer(new Node(to, totalDist));
+                if(movesLeft > edgeCost && !visited[to]) {
+                    maxHeap.offer(new Node(to, movesLeft - edgeCost - 1));
                 }
-                adjMatrix[from][to] = cost;
-                adjMatrix[to][from] = cost;
-                reachableCount += nextDist;
+                graph[to][from] -= Math.min(movesLeft, edgeCost);
+                count += Math.min(movesLeft, edgeCost);
+
             }
         }
-
-        return reachableCount + 1; // +1 since at least source node(0) is reachable
-
+        return count;
     }
 
     int[][] getAdjMatrix(int[][] edges, int n) {
         int[][] adjMatrix = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(adjMatrix[i], -1); // because graph can have edges with 0 weight
+        }
         for (int i = 0; i < edges.length; i++) {
             int from = edges[i][0];
             int to = edges[i][1];
@@ -64,11 +62,11 @@ class P882ReachableNodesInSubdividedGraph {
 
     class Node {
         int index;
-        int distFromSrc;
+        int moves;
 
-        Node(int index, int dist) {
+        Node(int index, int moves) {
             this.index = index;
-            this.distFromSrc = dist;
+            this.moves = moves;
         }
     }
 }
