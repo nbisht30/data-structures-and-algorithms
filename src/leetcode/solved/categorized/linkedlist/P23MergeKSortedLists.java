@@ -1,63 +1,39 @@
 package leetcode.solved.categorized.linkedlist;
-/*
-WOW! Solved my first hard problem, that too without any help at first attempt!
-Was also able to optimize it to beat 100% submissions in second attempt!
-I am really seeing the improvements now!
 
-https://leetcode.com/problems/merge-k-sorted-lists/
- */
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 class P23MergeKSortedLists {
+    /*
+    // MYSELF
+    // DATE: 17-06-21, second attempt
+    // TIME: 10 mins
+    // APPROACH : Priority Queue
+    The best data structure that comes to mind to find the smallest number among a set of ‘K’ numbers is a Heap. Let’s see how can we use a heap to find a better algorithm.
+        We can insert the first element of each array in a Min Heap.
+        After this, we can take out the smallest (top) element from the heap and add it to the merged list.
+        After removing the smallest element from the heap, we can insert the next element of the same list into the heap.
+        We can repeat steps 2 and 3 to populate the merged list in sorted order.
+     */
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) return null;
-        if (lists.length == 1) return lists[0];
-
-        ListNode temp = mergeParentLists(lists, 0, lists.length - 1);
-        return temp;
-    }
-
-    private ListNode mergeParentLists(ListNode[] lists, int start, int end) {
-        ListNode headLeft = null;
-        ListNode headRight = null;
-        int mid = (start + end) / 2;
-        if (start == end) return lists[start];
-        else if (start == end - 1) return merge(lists[start], lists[end]);
-        headLeft = mergeParentLists(lists, start, mid);
-        headRight = mergeParentLists(lists, mid + 1, end);
-
-        return merge(headLeft, headRight);
-    }
-
-    private ListNode merge(ListNode l, ListNode r) {
-
-        ListNode sortedListHead = new ListNode(0);
-        ListNode tail = sortedListHead;
-
-
-        while (l != null && r != null) {
-            if (l.val <= r.val) {
-                tail.next = l;
-                l = l.next;
-            } else {
-                tail.next = r;
-                r = r.next;
-            }
-            tail = tail.next;
+        if(lists == null || lists.length == 0) return null;
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.val));
+        ListNode merged = new ListNode();
+        ListNode itr = merged;
+        // Add first elements of all the lists
+        for(int i = 0; i < lists.length; i++) {
+            if(lists[i] != null) pq.add(lists[i]);
         }
 
-
-        if (l != null) { //r finished first because r had more smaller nodes
-            // and larger nodes of l are left, with l currently pointing to the first node
-            // of all those larger nodes
-            tail.next = l;
-            l = l.next;
+        while(!pq.isEmpty()) {
+            ListNode node = pq.poll();
+            itr.next = node;
+            itr = itr.next;
+            if(node.next == null) continue;
+            pq.add(node.next);
         }
 
-        if (r != null) {
-            tail.next = r;
-            r = r.next;
-        }
-
-        return sortedListHead.next;
+        return merged.next;
     }
 
     public class ListNode {
