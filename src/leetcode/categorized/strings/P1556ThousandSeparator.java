@@ -17,6 +17,7 @@ class P1556ThousandSeparator {
             n = n/10;
         }
         if(sb.length() > 1 && sb.charAt(sb.length() - 1) == '.') sb.setLength(sb.length() - 1);
+        
         return sb.reverse().toString();
     }
 }

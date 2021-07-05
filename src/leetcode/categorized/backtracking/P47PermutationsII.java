@@ -4,7 +4,7 @@ import java.util.*;
 
 class P47PermutationsII {
 
-    // Solution without set
+    // Without set
     // TIME: O(n! * n) [Permutations for any string is n!, and multiplied with n because of the for loop used in
     // each recursive call]
     public List<List<Integer>> permuteUnique(int[] nums) {
