@@ -20,8 +20,10 @@ class P62UniquePaths {
         }
     }
 
-    class Memoized {
+    class MemoizedSolution {
         // Top Down
+        // DATE: 23/Jan/22
+        // TC: O(m*n) SC: O(m * n )
         public int uniquePaths(int m, int n) {
             int[][] dp = new int[m + 1][n + 1];
             return ways(m, n, dp);
