@@ -3,7 +3,7 @@ package leetcode.categorized.dp.twodimensional;
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+class P494TargetSum {
 
     class RecursiveSolution {
 
