@@ -1,4 +1,4 @@
-package leetcode.categorized.arrays;
+package leetcode.categorized.dp;
 
 /**
  * @author Nikhil Bisht

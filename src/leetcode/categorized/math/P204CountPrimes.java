@@ -5,7 +5,7 @@ import java.util.Arrays;
 class P204CountPrimes {
     // https://leetcode.com/problems/count-primes/solution/
     /*
-    ALGORITHM : Sieve of Eratosthenes
+    INTUITION: Use Sieve of Eratosthenes Algorithm
     1. Create an boolean array of indices from 0 to n, where every index from 1 to n represents an integer.
     2. Initially the array is initialized to true.
     3. Iterate the array and if current index is a prime number, then mark all its multiples as non prime in the remaining array ahead that index, by marking prime[i] = false

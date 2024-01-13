@@ -6,43 +6,38 @@ import java.util.List;
 import java.util.Set;
 
 class Execution {
-    int minDigits = Integer.MAX_VALUE;
 
     public static void main(String[] args) {
-
-        Execution execution = new Execution();
-        List<Object> array = new ArrayList<>();
-        array.add(5);
-        array.add(2);
-        List<Object> a1 = new ArrayList<>();
-        a1.add(7);
-        a1.add(-1);
-        array.add(a1);
-        array.add(3);
-        a1 = new ArrayList<>();
-        a1.add(6);
-        List<Object> a2 = new ArrayList<>();
-        a2.add(-13);
-        a2.add(8);
-        a1.add(a2);
-        a1.add(4);
-        array.add(a1);
-        System.out.println(productSum(array));
+//        printPattern(1);
+        dummy();
     }
 
-    public static int productSum(List<Object> array) {
-        return helper(array, 1);
+    public static void dummy() {
+        byte b = 0;
+        b += 128;
+        System.out.println(b);
     }
 
-    public static int helper(List<Object> array, int depth) {
-        int productSum = 0;
-        for(Object item : array) {
-            if(item instanceof ArrayList) {
-                productSum += helper((ArrayList<Object>)item, depth + 1) * depth;
-            } else {
-                productSum += (Integer) item * depth;
-            }
+    public static void printPattern(int cols) {
+        if (cols < 0 || cols % 2 == 0) {
+            System.out.println("Invalid input!");
+            return;
         }
-        return productSum;
+
+        int rows = cols / 2 + 1;
+        int stars = 1;
+        System.out.println("Printing STAR pattern for rows: " + rows + " and columns: " + cols);
+        for (int r = 0; r < rows; r++) {
+            for (int sp = 0; sp < rows - r; sp++) {
+                System.out.print(" ");
+            }
+
+            for(int st = 0; st < stars; st++) {
+                System.out.print("*");
+            }
+            stars += 2;
+            System.out.println();
+        }
     }
+
 }
